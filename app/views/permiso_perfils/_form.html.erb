@@ -1,0 +1,32 @@
+<%= form_with(model: permiso_perfil, local: true) do |form| %>
+  <% if permiso_perfil.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(permiso_perfil.errors.count, "error") %> prohibited this permiso_perfil from being saved:</h2>
+
+      <ul>
+      <% permiso_perfil.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :perfil_id %>
+    <%= form.text_field :perfil_id, id: :permiso_perfil_perfil_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :permiso_id %>
+    <%= form.text_field :permiso_id, id: :permiso_perfil_permiso_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :concedido %>
+    <%= form.check_box :concedido, id: :permiso_perfil_concedido %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

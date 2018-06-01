@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Permiso Perfils</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Perfil</th>
+      <th>Permiso</th>
+      <th>Concedido</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @permiso_perfils.each do |permiso_perfil| %>
+      <tr>
+        <td><%= permiso_perfil.perfil %></td>
+        <td><%= permiso_perfil.permiso %></td>
+        <td><%= permiso_perfil.concedido %></td>
+        <td><%= link_to 'Show', permiso_perfil %></td>
+        <td><%= link_to 'Edit', edit_permiso_perfil_path(permiso_perfil) %></td>
+        <td><%= link_to 'Destroy', permiso_perfil, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Permiso Perfil', new_permiso_perfil_path %>

@@ -1,0 +1,34 @@
+<%= form_with(model: actividad, local: true) do |form| %>
+  <% if actividad.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(actividad.errors.count, "error") %> prohibited this actividad from being saved:</h2>
+
+      <ul>
+      <% actividad.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :actividad_nombre %>
+  </div>
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.date_field :fecha, id: :actividad_fecha, min: Date.today+2.days %>
+  </div>
+  <% if !actividad.new_record? %>
+    <div class="field">
+      <%= form.label :estado %>
+      <%= form.collection_select :estado, ['Pendiente', 'Aprobado', 'Rechazado', 'Cancelado'], :to_s, :to_s %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.hidden_field :user_id, value: current_user.id %>
+    <%= form.submit %>
+  </div>
+<% end %>

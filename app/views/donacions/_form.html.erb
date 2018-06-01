@@ -1,0 +1,26 @@
+<%= form_with(model: donacion, local: true) do |form| %>
+  <% if donacion.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(donacion.errors.count, "error") %> prohibited this donacion from being saved:</h2>
+
+      <ul>
+      <% donacion.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.hidden_field :user_id, id: :donacion_user_id, value: current_user.id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :monto %>
+    <%= form.number_field :monto, id: :donacion_monto %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

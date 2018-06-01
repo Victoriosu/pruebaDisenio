@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Perfil:</strong>
+  <%= @permiso_perfil.perfil %>
+</p>
+
+<p>
+  <strong>Permiso:</strong>
+  <%= @permiso_perfil.permiso %>
+</p>
+
+<p>
+  <strong>Concedido:</strong>
+  <%= @permiso_perfil.concedido %>
+</p>
+
+<%= link_to 'Edit', edit_permiso_perfil_path(@permiso_perfil) %> |
+<%= link_to 'Back', permiso_perfils_path %>

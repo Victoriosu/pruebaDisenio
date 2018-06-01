@@ -1,0 +1,56 @@
+<%= form_with(model: user, local: true) do |f| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+  <% end %>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+      <div class="field">
+        <%= f.label :nombre %><br />
+        <%= f.text_field :nombre_completo %>
+      </div>
+      <div class="field">
+        <%= f.label :fecha_nacimiento %><br />
+        <%= f.date_field :fecha_nacimiento, autocomplete: "off", max: Date.today %>
+      </div>
+      <div class="field">
+        <%= f.label :telefono %><br />
+        <%= f.text_field :telefono %>
+      </div>
+      <div class="field">
+        <%= f.label :direccion %><br />
+        <%= f.text_field :direccion %>
+      </div>
+      <div class="field">
+        <%= f.label :perfil_id %><br />
+        <%= f.collection_select :perfil_id, Perfil.all, :id, :nombre%>
+      </div>
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "off" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

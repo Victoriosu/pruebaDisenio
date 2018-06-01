@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>PruebaDisenio2</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <li>Usuarios</li>
+    <li><%= link_to 'Ver Todos', users_path %></li>
+    <li><%= link_to 'Crear Usuario', new_user_path %></li>
+  <li>Perfiles</li>
+    <li><%= link_to 'Ver Todos', perfils_path %></li>
+    <li><%= link_to 'Crear Perfil', new_perfil_path  %></li>
+  <li>Actividades</li>
+    <% if current_user.perfil_id == 3 %>
+      <li><%= link_to 'Ver Todas', actividads_path %></li>
+    <% end %>
+    <li><%= link_to 'Ver mis actividades', '/actividades/pendientes' %></li>
+    <li><%= link_to 'Ver Aprobadas', '/actividades/aprobadas'  %></li>
+  <li>Donaciones</li>
+    <li><%= link_to 'Mis donaciones', donacions_path %></li>
+    <li><%= link_to 'Hacer donacion', new_donacion_path  %></li>
+  <body>
+  	<p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>

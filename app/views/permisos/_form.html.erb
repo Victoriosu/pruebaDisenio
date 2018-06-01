@@ -1,0 +1,22 @@
+<%= form_with(model: permiso, local: true) do |form| %>
+  <% if permiso.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(permiso.errors.count, "error") %> prohibited this permiso from being saved:</h2>
+
+      <ul>
+      <% permiso.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :nombre %>
+    <%= form.text_field :nombre, id: :permiso_nombre %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

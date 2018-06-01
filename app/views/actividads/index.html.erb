@@ -1,0 +1,37 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Actividads</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Fecha</th>
+      <th>Estado</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @actividads.each do |actividad| %>
+      <tr>
+        <td><%= actividad.nombre %></td>
+        <td><%= actividad.fecha %></td>
+        <td><%= actividad.estado %></td>
+        <td><%= link_to 'Show', actividad %></td>
+        <td><%= link_to 'Edit', edit_actividad_path(actividad) %></td>
+        <% if actividad.estado == "Pendiente" %>
+          <td><%= link_to 'Destroy', actividad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if current_user.perfil_id == 1 %>
+            <td><%= link_to 'Aprobar', aprobar_actividad_path( actividad_id: actividad.id) %></td>
+          <% end %>
+        <% end %>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Actividad', new_actividad_path %>

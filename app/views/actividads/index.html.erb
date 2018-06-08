@@ -2,13 +2,13 @@
 
 <h1>Actividads</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Nombre</th>
       <th>Fecha</th>
       <th>Estado</th>
-      <th colspan="4"></th>
+      <th colspan="4">Opciones</th>
     </tr>
   </thead>
 
@@ -18,10 +18,10 @@
         <td><%= actividad.nombre %></td>
         <td><%= actividad.fecha %></td>
         <td><%= actividad.estado %></td>
-        <td><%= link_to 'Show', actividad %></td>
-        <td><%= link_to 'Edit', edit_actividad_path(actividad) %></td>
+        <td><%= link_to 'Mostrar', actividad %></td>
+        <td><%= link_to 'Editar usuario', edit_actividad_path(actividad) %></td>
         <% if actividad.estado == "Pendiente" %>
-          <td><%= link_to 'Destroy', actividad, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Destroy', actividad, method: :delete, data: { confirm: 'Seguro que desea eliminar el usuario?' } %></td>
           <% if current_user.perfil_id == 1 %>
             <td><%= link_to 'Aprobar', aprobar_actividad_path( actividad_id: actividad.id) %></td>
           <% end %>

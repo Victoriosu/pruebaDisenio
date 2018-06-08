@@ -2,11 +2,11 @@
 
 <h1>Perfils</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Nombre</th>
-      <th colspan="3"></th>
+      <th colspan="3">Opciones</th>
     </tr>
   </thead>
 
@@ -14,9 +14,9 @@
     <% @perfils.each do |perfil| %>
       <tr>
         <td><%= perfil.nombre %></td>
-        <td><%= link_to 'Show', perfil %></td>
-        <td><%= link_to 'Edit', edit_perfil_path(perfil) %></td>
-        <td><%= link_to 'Destroy', perfil, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar ', perfil %></td>
+        <td><%= link_to 'Editar', edit_perfil_path(perfil) %></td>
+        <td><%= link_to 'Eliminar', perfil, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

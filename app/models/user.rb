@@ -8,4 +8,5 @@ class User < ApplicationRecord
   validates_presence_of :perfil_id
   
   has_many :donacions, dependent: :destroy
+  has_many :actividads, dependent: :destroy
 end

@@ -12,51 +12,68 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
   </head>
-    <div class="container">
-      <div class="table">
-        <table class="table table-striped">
-          <h2 align="center"><b>Usuarios </b></h2>
-        <thead>
-          <tr>
-            
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><li><%= link_to 'Ver Todos', users_path %></li></td>
-            <td><li><%= link_to 'Crear Usuario', new_user_path %></li></td>
-          </tr>
-          <tr>
-            <td><li>Perfiles</li></td>
-            <td><li><%= link_to 'Ver Todos', perfils_path %></li></td>
-            <td><li><%= link_to 'Crear Perfil', new_perfil_path  %></li></td>
-          </tr>
-          <tr>
-            <td><li>Actividades</li></td>
-            <% if  user_signed_in? && current_user.perfil_id == 3 %>
-            <li><%= link_to 'Ver Todas', actividads_path %></li>
-            <% end %>
-          </tr>
-        </tbody>
-        </table>
-      </div>
-    </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">La de Siempre</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Usuarios
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to 'Ver Todos', users_path, class: 'dropdown-item' %>
+          <div class="dropdown-divider"></div>
+          <%= link_to 'Crear Usuario', new_user_path, class: 'dropdown-item' %>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Perfiles
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to 'Ver Todos', perfils_path , class: 'dropdown-item'%>
+          <div class="dropdown-divider"></div>
+          <%= link_to 'Crear Perfil', new_perfil_path , class: 'dropdown-item' %>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Actividades
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <% if  user_signed_in? && current_user.perfil_id == 3 %>
+          <%= link_to 'Ver Todas', actividads_path , class: 'dropdown-item'%>
+          <div class="dropdown-divider"></div>
+          <% end %>
+          <%= link_to 'Ver mis actividades', '/actividades/pendientes' , class: 'dropdown-item'%>
+          <div class="dropdown-divider"></div>
+          <%= link_to 'Ver Aprobadas', '/actividades/aprobadas' , class: 'dropdown-item' %>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Donaciones
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <%= link_to 'Mis donaciones', donacions_path , class: 'dropdown-item'%>
+          <div class="dropdown-divider"></div>
+          <%= link_to 'Hacer donacion', new_donacion_path  , class: 'dropdown-item'%>
+        </div>
+      </li>
+      
+    </ul>
+    
   </div>
-    
-
-    <li><%= link_to 'Ver mis actividades', '/actividades/pendientes' %></li>
-    <li><%= link_to 'Ver Aprobadas', '/actividades/aprobadas'  %></li>
-  <li>Donaciones</li>
-    <li><%= link_to 'Mis donaciones', donacions_path %></li>
-    <li><%= link_to 'Hacer donacion', new_donacion_path  %></li>
-
+</nav>
   
+
   <body>
-    
-    
-
-
-
   	<p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

@@ -1,3 +1,39 @@
 // Place all the styles related to the Users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+input[type=text],select,input[type=email],input[type=password],input[type=date]{
+	width: 100%;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+label{
+	font-family: "Times New Roman",Times,serif;
+	font-size:20px;
+}
+
+input[type=date]{
+	width: 20%;
+	margin: 8px 0;
+	display: inline-block;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	box-sizing: border-box;
+}
+
+/*input[type=submit]{
+	width: 100%;
+	padding: 3px;
+	display: inline-block;
+	background-color:#58FA58;
+	border-radius: 105px 105px 105px 105px;
+	-moz-border-radius: 105px 105px 105px 105px;
+	-webkit-border-radius: 105px 105px 105px 105px;
+	border: 0px solid #58FA58;
+}
+*/
+

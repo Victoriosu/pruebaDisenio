@@ -1,19 +1,21 @@
 <p id="notice"><%= notice %></p>
+<table class="table">
+	<thead>
+		<tr>
+			<td><strong>Nombre</strong></td>
+			<td><strong>Fecha</strong></td>
+			<td><strong>Estado</strong></td>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><%= @actividad.nombre %></td>
+			<td><%= @actividad.fecha %></td>
+			<td><%= @actividad.estado %></td>
+		</tr>
+	</tbody>
+</table>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @actividad.nombre %>
-</p>
 
-<p>
-  <strong>Fecha:</strong>
-  <%= @actividad.fecha %>
-</p>
-
-<p>
-  <strong>Estado:</strong>
-  <%= @actividad.estado %>
-</p>
-
-<%= link_to 'Edit', edit_actividad_path(@actividad) %> |
-<%= link_to 'Back', actividads_path %>
+<%= link_to 'Editar', edit_actividad_path(@actividad) %> |
+<%= link_to 'Volver', actividads_path %>

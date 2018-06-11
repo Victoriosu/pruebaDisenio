@@ -12,21 +12,18 @@
 
 ActiveRecord::Schema.define(version: 20180601024812) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "actividads", force: :cascade do |t|
     t.string "nombre"
     t.date "fecha"
     t.string "estado"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.integer "user_id"
     t.index ["user_id"], name: "index_actividads_on_user_id"
   end
 
   create_table "donacions", force: :cascade do |t|
-    t.bigint "user_id"
+    t.integer "user_id"
     t.integer "monto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,8 +37,8 @@ ActiveRecord::Schema.define(version: 20180601024812) do
   end
 
   create_table "permiso_perfils", force: :cascade do |t|
-    t.bigint "perfil_id"
-    t.bigint "permiso_id"
+    t.integer "perfil_id"
+    t.integer "permiso_id"
     t.boolean "concedido"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -70,19 +67,14 @@ ActiveRecord::Schema.define(version: 20180601024812) do
     t.integer "sign_in_count", default: 0, null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.inet "current_sign_in_ip"
-    t.inet "last_sign_in_ip"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "perfil_id"
+    t.integer "perfil_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["perfil_id"], name: "index_users_on_perfil_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "actividads", "users"
-  add_foreign_key "donacions", "users"
-  add_foreign_key "permiso_perfils", "perfils"
-  add_foreign_key "permiso_perfils", "permisos"
-  add_foreign_key "users", "perfils"
 end

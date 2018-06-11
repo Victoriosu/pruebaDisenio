@@ -1,25 +1,37 @@
-<%- if controller_name != 'sessions' %>
-  <%= link_to "Iniciar session", new_session_path(resource_name) %><br />
+<%- if controller_name != 'sessions' && !user_signed_in? %>
+<li class="nav-item" style="height: 1px;">
+  <%= link_to "Iniciar sesión", new_session_path(resource_name), class: "nav-link" %><br />
 <% end -%>
+</li>
 
-<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-  <%= link_to "Registrarse", new_registration_path(resource_name) %><br />
+<%- if !user_signed_in? && !user_signed_in? && devise_mapping.registerable? && controller_name != 'registrations' %>
+<li class="nav-item" style="height: 1px;">
+  <%= link_to "Registrarse", new_registration_path(resource_name), class: "nav-link" %><br />
 <% end -%>
+</li>
 
-<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to "Olvidé mi contraseña", new_password_path(resource_name) %><br />
+<%- if !user_signed_in? && devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
+<li class="nav-item" style="height: 1px;">
+  <%= link_to "Olvidé mi contraseña", new_password_path(resource_name), class: "nav-link" %><br />
 <% end -%>
+</li>
 
-<%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
-  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
+<%- if !user_signed_in? && devise_mapping.confirmable? && controller_name != 'confirmations' %>
+<li class="nav-item" style="height: 1px;">
+  <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name), class: "nav-link" %><br />
 <% end -%>
+</li>
 
-<%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
-  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />
+<%- if !user_signed_in? && devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
+<li class="nav-item" style="height: 1px;">
+  <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name), class: "nav-link" %><br />
 <% end -%>
+</li>
 
-<%- if devise_mapping.omniauthable? %>
+<%- if !user_signed_in? && devise_mapping.omniauthable? %>
+<li class="nav-item" style="height: 1px;">
   <%- resource_class.omniauth_providers.each do |provider| %>
-    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider) %><br />
+    <%= link_to "Sign in with #{OmniAuth::Utils.camelize(provider)}", omniauth_authorize_path(resource_name, provider), class: "nav-link" %><br />
   <% end -%>
 <% end -%>
+</li>

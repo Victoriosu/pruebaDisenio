@@ -35,3 +35,9 @@
   <% end -%>
 <% end -%>
 </li>
+
+<% if user_signed_in? %>
+	<li class="nav-item" style="height: 1px;">
+	  <%= link_to "Cerrar Sesión", destroy_session_path(current_user), class: "nav-link" %><br />
+	</li>
+<% end %>

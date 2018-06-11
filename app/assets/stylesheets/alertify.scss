@@ -1,106 +1,3 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- */
-@import "bootstrap";
-
-@font-face {
-  font-family: 'roboto';
-  src: url('roboto.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-
-
-
-
-
-.page{
-	margin-left: 50%;
-	margin-top: 15px;
-	font-size: 50px;
-	color: blue;
-	font-family: "Times New Roman",Times,serif;
-
-}
-
-form {
-    background: #507ba9b5;
-    padding: 2%;
-    border-radius: 3%;
-}
-
-.dropbtn {
-    background-color: #01DF01;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-    with: 100%;
-}
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
-
-
-
-
-.tblmenu{
-	width: 100%;
-    text-align:center;
-    margin-left: 10px;
-}
-
-
-.tblmenu td{
-    
-    padding: 0px;
-    margin: 0px;
-    background-color: #01DF01;
-}
-
-
-
-
-
 /**
  * alertifyjs 1.11.1 http://alertifyjs.com
  * AlertifyJS is a javascript framework for developing pretty browser dialogs and notifications.
@@ -110,9 +7,9 @@ form {
   position: fixed;
   z-index: 1981;
   top: 0;
-  left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
   padding: 0;
   margin: 0;
   background-color: #252525;
@@ -121,8 +18,8 @@ form {
 .alertify .ajs-modal {
   position: fixed;
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
   bottom: 0;
   padding: 0;
   overflow-y: auto;
@@ -141,9 +38,9 @@ form {
   content: '';
   position: absolute;
   top: 0;
-  left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
   display: block;
   z-index: 1;
 }
@@ -156,15 +53,15 @@ form {
 }
 .alertify .ajs-commands {
   position: absolute;
-  left: 4px;
-  margin: -14px 0 0 24px;
+  right: 4px;
+  margin: -14px 24px 0 0;
   z-index: 2;
 }
 .alertify .ajs-commands button {
   display: none;
   width: 10px;
   height: 10px;
-  margin-right: 10px;
+  margin-left: 10px;
   padding: 10px;
   border: 0;
   background-color: transparent;
@@ -188,25 +85,25 @@ form {
   min-height: 56px;
 }
 .alertify .ajs-body .ajs-content {
-  padding: 16px 16px 16px 24px;
+  padding: 16px 24px 16px 16px;
 }
 .alertify .ajs-footer {
   padding: 4px;
-  margin-right: -24px;
   margin-left: -24px;
+  margin-right: -24px;
   min-height: 43px;
   background-color: #fff;
 }
 .alertify .ajs-footer .ajs-buttons.ajs-primary {
-  text-align: left;
+  text-align: right;
 }
 .alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
   margin: 4px;
 }
 .alertify .ajs-footer .ajs-buttons.ajs-auxiliary {
-  float: right;
+  float: left;
   clear: none;
-  text-align: right;
+  text-align: left;
 }
 .alertify .ajs-footer .ajs-buttons.ajs-auxiliary .ajs-button {
   margin: 4px;
@@ -220,32 +117,32 @@ form {
   display: none;
   width: 10px;
   height: 10px;
-  left: 0;
+  right: 0;
   bottom: 0;
   z-index: 1;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABZ0RVh0Q3JlYXRpb24gVGltZQAwNy8xMS8xNEDQYmMAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzbovLKMAAAAQ0lEQVQYlaXNMQoAIAxD0dT7H657l0KX3iJuUlBUNOsPPCGJm7VDp6ryeMxMuDsAQH7owW3pyn3RS26iKxERMLN3ugOaAkaL3sWVigAAAABJRU5ErkJggg==);
-  -webkit-transform: scaleX(-1);
-          transform: scaleX(-1);
-  cursor: sw-resize;
+  -webkit-transform: scaleX(1) /*rtl:scaleX(-1)*/;
+          transform: scaleX(1) /*rtl:scaleX(-1)*/;
+  cursor: se-resize;
 }
 .alertify.ajs-no-overflow .ajs-body .ajs-content {
   overflow: hidden !important;
 }
 .alertify.ajs-no-padding.ajs-maximized .ajs-body .ajs-content {
-  right: 0;
   left: 0;
+  right: 0;
   padding: 0;
 }
 .alertify.ajs-no-padding:not(.ajs-maximized) .ajs-body {
-  margin-right: -24px;
   margin-left: -24px;
+  margin-right: -24px;
 }
 .alertify.ajs-no-padding:not(.ajs-maximized) .ajs-body .ajs-content {
   padding: 0;
 }
 .alertify.ajs-no-padding.ajs-resizable .ajs-body .ajs-content {
-  right: 0;
   left: 0;
+  right: 0;
 }
 .alertify.ajs-maximizable .ajs-commands button.ajs-maximize,
 .alertify.ajs-maximizable .ajs-commands button.ajs-restore {
@@ -260,7 +157,7 @@ form {
   max-width: none !important;
   margin: 0 auto !important;
   top: 0 !important;
-  right: 0 !important;
+  left: 0 !important;
 }
 .alertify.ajs-maximized.ajs-modeless .ajs-modal {
   position: fixed !important;
@@ -277,14 +174,14 @@ form {
 }
 .alertify.ajs-resizable .ajs-commands,
 .alertify.ajs-maximized .ajs-commands {
-  margin: 14px 0 0 24px;
+  margin: 14px 24px 0 0;
 }
 .alertify.ajs-resizable .ajs-header,
 .alertify.ajs-maximized .ajs-header {
   position: absolute;
   top: 0;
-  right: 0;
   left: 0;
+  right: 0;
   margin: 0;
   padding: 16px 24px;
 }
@@ -297,16 +194,16 @@ form {
 .alertify.ajs-maximized .ajs-body .ajs-content {
   position: absolute;
   top: 50px;
-  left: 24px;
-  bottom: 50px;
   right: 24px;
+  bottom: 50px;
+  left: 24px;
   overflow: auto;
 }
 .alertify.ajs-resizable .ajs-footer,
 .alertify.ajs-maximized .ajs-footer {
   position: absolute;
-  right: 0;
   left: 0;
+  right: 0;
   bottom: 0;
   margin: 0;
 }
@@ -351,8 +248,8 @@ form {
 .alertify.ajs-frameless .ajs-header {
   position: absolute;
   top: 0;
-  right: 0;
   left: 0;
+  right: 0;
   min-height: 60px;
   margin: 0;
   padding: 0;
@@ -365,9 +262,9 @@ form {
 .alertify.ajs-frameless .ajs-body .ajs-content {
   position: absolute;
   top: 0;
-  left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
 }
 .alertify.ajs-frameless:not(.ajs-resizable) .ajs-dialog {
   padding-top: 0;
@@ -382,9 +279,9 @@ form {
 .ajs-no-overflow.ajs-fixed {
   position: fixed;
   top: 0;
-  left: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
+  left: 0;
   overflow-y: scroll!important;
 }
 .ajs-no-selection,
@@ -454,15 +351,15 @@ form {
   50%,
   70%,
   90% {
-    -webkit-transform: translate3d(10px, 0, 0);
-            transform: translate3d(10px, 0, 0);
+    -webkit-transform: translate3d(-10px, 0, 0);
+            transform: translate3d(-10px, 0, 0);
   }
   20%,
   40%,
   60%,
   80% {
-    -webkit-transform: translate3d(-10px, 0, 0);
-            transform: translate3d(-10px, 0, 0);
+    -webkit-transform: translate3d(10px, 0, 0);
+            transform: translate3d(10px, 0, 0);
   }
 }
 @keyframes ajs-shake {
@@ -476,15 +373,15 @@ form {
   50%,
   70%,
   90% {
-    -webkit-transform: translate3d(10px, 0, 0);
-            transform: translate3d(10px, 0, 0);
+    -webkit-transform: translate3d(-10px, 0, 0);
+            transform: translate3d(-10px, 0, 0);
   }
   20%,
   40%,
   60%,
   80% {
-    -webkit-transform: translate3d(-10px, 0, 0);
-            transform: translate3d(-10px, 0, 0);
+    -webkit-transform: translate3d(10px, 0, 0);
+            transform: translate3d(10px, 0, 0);
   }
 }
 .alertify.ajs-slide.ajs-in:not(.ajs-hidden) .ajs-dialog {
@@ -731,26 +628,26 @@ form {
 }
 @-webkit-keyframes ajs-flipInX {
   0% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
     -webkit-transition-timing-function: ease-in;
             transition-timing-function: ease-in;
     opacity: 0;
   }
   40% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 20deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, 20deg);
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     -webkit-transition-timing-function: ease-in;
             transition-timing-function: ease-in;
   }
   60% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -10deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, -10deg);
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
     opacity: 1;
   }
   80% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 5deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, 5deg);
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
   }
   100% {
     -webkit-transform: perspective(400px);
@@ -759,26 +656,26 @@ form {
 }
 @keyframes ajs-flipInX {
   0% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
     -webkit-transition-timing-function: ease-in;
             transition-timing-function: ease-in;
     opacity: 0;
   }
   40% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 20deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, 20deg);
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     -webkit-transition-timing-function: ease-in;
             transition-timing-function: ease-in;
   }
   60% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -10deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, -10deg);
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, 10deg);
     opacity: 1;
   }
   80% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 5deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, 5deg);
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, -5deg);
   }
   100% {
     -webkit-transform: perspective(400px);
@@ -791,13 +688,13 @@ form {
             transform: perspective(400px);
   }
   30% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 20deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, 20deg);
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     opacity: 1;
   }
   100% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
     opacity: 0;
   }
 }
@@ -807,38 +704,38 @@ form {
             transform: perspective(400px);
   }
   30% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 20deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, 20deg);
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, -20deg);
     opacity: 1;
   }
   100% {
-    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
-            transform: perspective(400px) rotate3d(1, 0, 0, -90deg);
+    -webkit-transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
+            transform: perspective(400px) rotate3d(1, 0, 0, 90deg);
     opacity: 0;
   }
 }
 @-webkit-keyframes ajs-flipInY {
   0% {
-    -webkit-transform: perspective(400px) rotate3d(0, -1, 0, -90deg);
-            transform: perspective(400px) rotate3d(0, -1, 0, -90deg);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
     -webkit-transition-timing-function: ease-in;
             transition-timing-function: ease-in;
     opacity: 0;
   }
   40% {
-    -webkit-transform: perspective(400px) rotate3d(0, -1, 0, 20deg);
-            transform: perspective(400px) rotate3d(0, -1, 0, 20deg);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
     -webkit-transition-timing-function: ease-in;
             transition-timing-function: ease-in;
   }
   60% {
-    -webkit-transform: perspective(400px) rotate3d(0, -1, 0, -10deg);
-            transform: perspective(400px) rotate3d(0, -1, 0, -10deg);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
     opacity: 1;
   }
   80% {
-    -webkit-transform: perspective(400px) rotate3d(0, -1, 0, 5deg);
-            transform: perspective(400px) rotate3d(0, -1, 0, 5deg);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
   }
   100% {
     -webkit-transform: perspective(400px);
@@ -847,26 +744,26 @@ form {
 }
 @keyframes ajs-flipInY {
   0% {
-    -webkit-transform: perspective(400px) rotate3d(0, -1, 0, -90deg);
-            transform: perspective(400px) rotate3d(0, -1, 0, -90deg);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
     -webkit-transition-timing-function: ease-in;
             transition-timing-function: ease-in;
     opacity: 0;
   }
   40% {
-    -webkit-transform: perspective(400px) rotate3d(0, -1, 0, 20deg);
-            transform: perspective(400px) rotate3d(0, -1, 0, 20deg);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, -20deg);
     -webkit-transition-timing-function: ease-in;
             transition-timing-function: ease-in;
   }
   60% {
-    -webkit-transform: perspective(400px) rotate3d(0, -1, 0, -10deg);
-            transform: perspective(400px) rotate3d(0, -1, 0, -10deg);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, 10deg);
     opacity: 1;
   }
   80% {
-    -webkit-transform: perspective(400px) rotate3d(0, -1, 0, 5deg);
-            transform: perspective(400px) rotate3d(0, -1, 0, 5deg);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, -5deg);
   }
   100% {
     -webkit-transform: perspective(400px);
@@ -879,13 +776,13 @@ form {
             transform: perspective(400px);
   }
   30% {
-    -webkit-transform: perspective(400px) rotate3d(0, -1, 0, 15deg);
-            transform: perspective(400px) rotate3d(0, -1, 0, 15deg);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
     opacity: 1;
   }
   100% {
-    -webkit-transform: perspective(400px) rotate3d(0, -1, 0, -90deg);
-            transform: perspective(400px) rotate3d(0, -1, 0, -90deg);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
     opacity: 0;
   }
 }
@@ -895,13 +792,13 @@ form {
             transform: perspective(400px);
   }
   30% {
-    -webkit-transform: perspective(400px) rotate3d(0, -1, 0, 15deg);
-            transform: perspective(400px) rotate3d(0, -1, 0, 15deg);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, -15deg);
     opacity: 1;
   }
   100% {
-    -webkit-transform: perspective(400px) rotate3d(0, -1, 0, -90deg);
-            transform: perspective(400px) rotate3d(0, -1, 0, -90deg);
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
+            transform: perspective(400px) rotate3d(0, 1, 0, 90deg);
     opacity: 0;
   }
 }
@@ -981,7 +878,7 @@ form {
 .alertify-notifier .ajs-message .ajs-close {
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
   width: 16px;
   height: 16px;
   cursor: pointer;
@@ -989,7 +886,7 @@ form {
   background-repeat: no-repeat;
   background-position: center center;
   background-color: rgba(0, 0, 0, 0.5);
-  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
 }
 .alertify-notifier.ajs-top {
   top: 10px;
@@ -998,32 +895,32 @@ form {
   bottom: 10px;
 }
 .alertify-notifier.ajs-right {
-  left: 10px;
-}
-.alertify-notifier.ajs-right .ajs-message {
-  left: -320px;
-}
-.alertify-notifier.ajs-right .ajs-message.ajs-visible {
-  left: 0px;
-}
-.alertify-notifier.ajs-left {
   right: 10px;
 }
+.alertify-notifier.ajs-right .ajs-message {
+  right: -320px;
+}
+.alertify-notifier.ajs-right .ajs-message.ajs-visible {
+  right: 290px;
+}
+.alertify-notifier.ajs-left {
+  left: 10px;
+}
 .alertify-notifier.ajs-left .ajs-message {
-  right: -300px;
+  left: -300px;
 }
 .alertify-notifier.ajs-left .ajs-message.ajs-visible {
-  right: 270px;
+  left: 0;
 }
 .alertify-notifier.ajs-center {
-  right: 50%;
+  left: 50%;
 }
 .alertify-notifier.ajs-center .ajs-message {
-  -webkit-transform: translateX(50%);
-          transform: translateX(50%);
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
 }
 .alertify-notifier.ajs-center .ajs-message.ajs-visible {
-  right: 50%;
+  left: 50%;
   -webkit-transition-timing-function: cubic-bezier(0.57, 0.43, 0.1, 0.65);
           transition-timing-function: cubic-bezier(0.57, 0.43, 0.1, 0.65);
 }
@@ -1038,39 +935,4 @@ form {
 }
 .alertify-notifier.ajs-center.ajs-bottom .ajs-message.ajs-visible {
   bottom: 0;
-}
-
-
-
-
-
-.divider-text {
-    position: relative;
-    text-align: center;
-    margin-top: 15px;
-    margin-bottom: 15px;
-}
-.divider-text span {
-    padding: 7px;
-    font-size: 12px;
-    position: relative;   
-    z-index: 2;
-}
-.divider-text:after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    border-bottom: 1px solid #ddd;
-    top: 55%;
-    left: 0;
-    z-index: 1;
-}
-
-.btn-facebook {
-    background-color: #405D9D;
-    color: #fff;
-}
-.btn-twitter {
-    background-color: #42AEEC;
-    color: #fff;
 }

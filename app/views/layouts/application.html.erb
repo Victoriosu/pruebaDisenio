@@ -7,84 +7,105 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    
+    
 
-    <script type="text/javascript">
-      $(document).ready(function() {
-        alertify.error("hola");
-      })
-    </script>
+
+
+    <% if notice != nil %>
+      <script type="text/javascript">
+        $(document).ready(function() {
+            alertify.success("<%=notice%>");
+        });
+      </script>
+    <%end%>
+
+    <% if alert != nil %>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          alertify.error("<%=alert%>");
+        });
+      </script>
+    <% end %>
+
 
   </head>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand" <%= link_to 'La de Siempre', users_path %> </a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Usuarios
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to 'Ver Todos', users_path, class: 'dropdown-item' %>
-          <div class="dropdown-divider"></div>
-          <%= link_to 'Crear Usuario', new_user_path, class: 'dropdown-item' %>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Perfiles
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to 'Ver Todos', perfils_path , class: 'dropdown-item'%>
-          <div class="dropdown-divider"></div>
-          <%= link_to 'Crear Perfil', new_perfil_path , class: 'dropdown-item' %>
-        </div>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Actividades
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         < % if  user_signed_in? && current_user.perfil_id == 3 %>
-          <%= link_to 'Ver Todas', actividads_path , class: 'dropdown-item'%>
-          <div class="dropdown-divider"></div>
-          <% end %>
-          <%= link_to 'Ver mis actividades', '/actividades/pendientes' , class: 'dropdown-item'%>
-          <div class="dropdown-divider"></div>
-          <%= link_to 'Ver Aprobadas', '/actividades/aprobadas' , class: 'dropdown-item' %>
-        </div>
-      </li>
-
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Donaciones
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <%= link_to 'Mis donaciones', donacions_path , class: 'dropdown-item'%>
-          <div class="dropdown-divider"></div>
-          <%= link_to 'Hacer donacion', new_donacion_path  , class: 'dropdown-item'%>
-        </div>
-      </li>
-      
-        <%= render "devise/shared/links" %>          
-      
-    </ul>
-  </div>
-</nav>
-
   <body>
+<% if user_signed_in? %>
+  <div id="header">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light new_bg"">
+    <%= link_to 'La de Siempre', users_path, class: "navbar-brand",style:"height: 0%;" %> 
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <% if user_signed_in? && current_user.perfil_id == 1 %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffc000;">
+              Usuarios
+            </a>
+            <div class="dropdown-menu new_ddl" aria-labelledby="navbarDropdown">
+              <%= link_to 'Ver Todos', users_path, class: 'dropdown-item',style:"color: #ffc107;"%>
+              <div class="dropdown-divider"  style="background-color: #ffc107; border:0.5px solid #ffc000 "></div>
+              <%= link_to 'Crear Usuario', new_user_path, class: 'dropdown-item',style:"color: #ffc107;" %>
+            </div>
+          </li>
+          <%end%>
+          <% if user_signed_in? && current_user.perfil_id == 1 %>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffc000;">
+              Perfiles
+            </a>
+            <div class="dropdown-menu new_ddl" aria-labelledby="navbarDropdown">
+              <%= link_to 'Ver Todos', perfils_path , class: 'dropdown-item',style:"color: #ffc107;"%>
+              <div class="dropdown-divider" style="background-color: #ffc107; border:0.5px solid #ffc000 "></div>
+              <%= link_to 'Crear Perfil', new_perfil_path , class: 'dropdown-item',style:"color: #ffc107;" %>
+            </div>
+          </li>
+          <%end%>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffc000;">
+              Actividades
+            </a>
+            <div class="dropdown-menu new_ddl" aria-labelledby="navbarDropdown">
+             <% if  user_signed_in? && current_user.perfil_id == 3 %>
+              <%= link_to 'Ver Todas', actividads_path , class: 'dropdown-item',style:"color: #ffc107;"%>
+              <div class="dropdown-divider" style="background-color: #ffc107; border:0.5px solid #ffc000 "></div>
+              <% end %>
+              <%= link_to 'Ver mis actividades', '/actividades/pendientes' , class: 'dropdown-item',style:"color: #ffc107;"%>
+              <div class="dropdown-divider" style="background-color: #ffc107; border:0.5px solid #ffc000 "></div>
+              <%= link_to 'Ver Aprobadas', '/actividades/aprobadas' , class: 'dropdown-item',style:"color: #ffc107;" %>
+            </div>
+          </li>
+
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffc000;">
+              Donaciones
+            </a>
+            <div class="dropdown-menu new_ddl" aria-labelledby="navbarDropdown">
+              <%= link_to 'Mis donaciones', donacions_path , class: 'dropdown-item',style:"color: #ffc107;"%>
+              <div class="dropdown-divider" style="background-color: #ffc107; border:0.5px solid #ffc000 "></div>
+              <%= link_to 'Hacer donacion', new_donacion_path  , class: 'dropdown-item',style:"color: #ffc107;"%>
+            </div>
+          </li>
+          
+            <%= render "devise/shared/links" %>          
+        </ul>
+      </div>
+    </nav>
+  </div>
+<% end %>
+  
   	<p class="notice" style="display: none;"><%= notice %></p>
     <p class="alert"  style="display: none;"><%= alert %></p>
     <%= yield %>
     
 
   </body>
+
 </html>
 
 

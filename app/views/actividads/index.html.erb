@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
+<body style="background-color: #8e476c">
+<div style="color: #ffc000; background-color: #8e476c;">
 
 <h1><strong>Actividades</strong></h1>
 
@@ -18,12 +19,12 @@
         <td><%= actividad.nombre %></td>
         <td><%= actividad.fecha %></td>
         <td><%= actividad.estado %></td>
-        <td><%= link_to 'Mostrar', actividad %></td>
-        <td><%= link_to 'Editar actividad', edit_actividad_path(actividad) %></td>
+        <td><%= link_to 'Mostrar', actividad,style:"color: #ffc000;" %></td>
+        <!--<td><%= link_to 'Editar actividad', edit_actividad_path(actividad) %></td>-->
         <% if actividad.estado == "Pendiente" %>
-          <td><%= link_to 'Eliminar', actividad, method: :delete, data: { confirm: 'Seguro que desea eliminar el usuario?' } %></td>
+          <td><%= link_to 'Eliminar', actividad, method: :delete,style:"color: #ffc000;", data: { confirm: 'Seguro que desea eliminar el usuario?' } %></td>
           <% if current_user.perfil_id == 1 %>
-            <td><%= link_to 'Aprobar', aprobar_actividad_path( actividad_id: actividad.id) %></td>
+            <td><%= link_to 'Aprobar', aprobar_actividad_path( actividad_id: actividad.id), style:"color: #ffc000;" %></td>
           <% end %>
         <% end %>
 
@@ -34,4 +35,5 @@
 
 <br>
 
-<%= link_to 'Crear nueva actividad', new_actividad_path %>
+<%= link_to 'Crear nueva actividad', new_actividad_path,class: "nav-link btn new_btn2",style:"width: 95%; margin-left:2%;" %>
+</div>

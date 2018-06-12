@@ -1,3 +1,5 @@
+<body style="background-color: #8e476c">
+<div style="color: #ffc000; background-color: #8e476c;">
 <p id="notice"><%= notice %></p>
 
 <h1>Perfils</h1>
@@ -10,13 +12,13 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody style="border: 0.5px solid #ffc000">
     <% @perfils.each do |perfil| %>
       <tr>
         <td><%= perfil.nombre %></td>
-        <td><%= link_to 'Mostrar ', perfil %></td>
-        <td><%= link_to 'Editar', edit_perfil_path(perfil) %></td>
-        <td><%= link_to 'Eliminar', perfil, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Mostrar ', perfil,style:"color: #ffc000" %></td>
+        <td><%= link_to 'Editar', edit_perfil_path(perfil),style:"color: #ffc000" %></td>
+        <td><%= link_to 'Eliminar', perfil, method: :delete, data: { confirm: 'Are you sure?' },style:"color: #ffc000" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -24,4 +26,7 @@
 
 <br>
 
-<%= link_to 'New Perfil', new_perfil_path %>
+<%= link_to 'Crear un perfil', new_perfil_path, class: "nav-link btn new_btn2",style:"width: 95%; margin-left:2%;" %>
+
+</div>
+</body>

@@ -1,4 +1,5 @@
-<p id="notice"><%= notice %></p>
+<body style="background-color: #8e476c">
+<div style="color: #ffc000; background-color: #8e476c;">
 
 <h1>Donacions</h1>
 
@@ -16,9 +17,9 @@
       <tr>
         <td><%= donacion.user.nombre_completo %></td>
         <td><%= donacion.monto %></td>
-        <td><%= link_to 'Mostrar', donacion %></td>
-        <td><%= link_to 'Editar', edit_donacion_path(donacion) %></td>
-        <td><%= link_to 'Eliminar', donacion, method: :delete, data: { confirm: 'Seguro que desea eliminar?' } %></td>
+        <td><%= link_to 'Mostrar', donacion,style:"color: #ffc000;" %></td>
+        <td><%= link_to 'Editar', edit_donacion_path(donacion),style:"color: #ffc000;" %></td>
+        <td><%= link_to 'Eliminar', donacion, method: :delete,style:"color: #ffc000;", data: { confirm: 'Seguro que desea eliminar?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -26,4 +27,6 @@
 
 <br>
 
-<%= link_to 'Hacer una donacion', new_donacion_path %>
+<%= link_to 'Hacer una donacion', new_donacion_path,class: "nav-link btn new_btn2",style:"width: 95%; margin-left:2%;" %>
+</div>
+</body>

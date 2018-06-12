@@ -1,26 +1,43 @@
-<%= form_with(model: donacion, local: true) do |form| %>
-  <% if donacion.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(donacion.errors.count, "error") %> prohibited this donacion from being saved:</h2>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 
-      <ul>
-      <% donacion.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+
+
+<div class="container new_container">
+  <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+      <div class="panel-heading" style="color: white;background-color: #8e476c;border-color: #bce8f1;">
+        <div class="panel-title">Iniciar Sesión</div>
+      </div>
+      <div class="panel-body" style="color: white;background-color: #8e476c;border-color: #bce8f1;"> 
+        <div  style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+        <%= form_with(model: donacion, local: true) do |form| %>
+          <% if donacion.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(donacion.errors.count, "error") %> prohibited this donacion from being saved:</h2>
+              <ul>
+                <% donacion.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+          <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+            <div class="form-group input-group">
+          <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="far fa-money-bill-alt"></i> </span>
+           </div>
+              <%= form.number_field :monto, id: :donacion_monto,style:"color:black;" %>
+          </div>
+          
+            <div style="color: black; width: 10%;">
+              <%= form.submit %>
+            </div>
+
+        </div>
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.hidden_field :user_id, id: :donacion_user_id, value: current_user.id %>
   </div>
-
-  <div class="field">
-    <%= form.label :monto %>
-    <%= form.number_field :monto, id: :donacion_monto %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+<%end%>

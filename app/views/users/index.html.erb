@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
+<body style="background-color: #8e476c">
+<div style="color: #ffc000; background-color: #8e476c;">
 
 <h1>Usuarios Registrados</h1>
 
-<table class="table">
+<table class="table" style="background-color: #8e476c">
   <thead>
     <tr>
       <th>Nombre Completo</th>
@@ -12,15 +13,16 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody style="border: 0.5px solid #ffc000">
     <% @users.each do |user| %>
       <tr>
         <td><%= user.nombre_completo %></td>
         <td><%= user.fecha_nacimiento %></td>
         <td><%= user.perfil.nombre %></td>
-        <td><%= link_to 'Mostrar', user %></td>
-        <td><%= link_to 'Editar', edit_user_path(user) %></td>
-        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if user_signed_in? && current_user.perfil_id == 1%>
+        <td><%= link_to 'Editar', edit_user_path(user),style: "color: #ffc000;" %></td>
+        <td><%= link_to 'Eliminar', user, method: :delete,style:"color: #ffc000;", data: { confirm: 'Are you sure?' } %></td>
+        <% end%>
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +30,8 @@
 
 <br>
 
-<%= link_to 'Crear un usuario', new_user_path %>
+</div>
+<% if user_signed_in? && current_user.perfil_id==1%>
+<%= link_to 'Crear un usuario', new_user_path,class: "nav-link btn new_btn2",style:"width: 95%; margin-left:2%;" %>
+<%end%>
+</body>

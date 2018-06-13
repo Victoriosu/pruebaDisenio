@@ -1,9 +1,9 @@
 <body style="background-color: #8e476c">
-<div style="color: #ffc000; background-color: #8e476c;">
+<div style="color: #ffc000; background-color: #8e476c; padding-right: 3%; padding-left: 3%;">
 
 <h1>Donacions</h1>
 
-<table class="table">
+<table class="table" style=" margin-left: 2%; margin-right: 5%;">
   <thead>
     <tr>
       <th>Usuario</th>
@@ -12,7 +12,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody style="border: 0 solid #ffc000">
     <% @donacions.each do |donacion| %>
       <tr>
         <td><%= donacion.user.nombre_completo %></td>
@@ -27,6 +27,6 @@
 
 <br>
 
-<%= link_to 'Hacer una donacion', new_donacion_path,class: "nav-link btn new_btn2",style:"width: 95%; margin-left:2%;" %>
+<%= link_to 'Hacer una donacion', new_donacion_path,class: "btn new_btn2",style:"width: 95%; margin-left:2%; font-size: 1.5erm;" %>
 </div>
 </body>

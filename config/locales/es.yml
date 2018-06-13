@@ -1,4 +1,20 @@
 es:
+  devise:
+    failure:
+      user:
+        not_found_in_database: "Usuario no encontrado"
+        unauthenticated: "Sesión cerrada"
+        invalid: "Usuario o contaseña invalido"
+    sessions:
+      user:
+        signed_in: "Sesión iniciada"
+
+    :registrations:
+      user:
+        signed_up: "Usuario creado y sesión iniciada"
+    
+
+    
   activerecord:
     errors:
       messages:

@@ -31,6 +31,8 @@ html{
 }
 
 
+
+
 .new_container{
   margin-top: 3% !important;
   max-width: 100% !important;
@@ -47,6 +49,8 @@ html{
 {
   background-color: #480024;
   color: #ffffff;
+  height: 34px;
+  font-size: 20px;
 }
 .bg-light.new_bg
 {
@@ -56,9 +60,12 @@ html{
 {
   background-color: #ffffff;
   color: #480024;
+  height: 34px;
+  font-size: 20px;
 }
 body{
-  background: #8e476c;
+  background: #8e476c !important;
+  font-size: 1.8rem !important;
 }
 .navbar-brand.new_nav
 {

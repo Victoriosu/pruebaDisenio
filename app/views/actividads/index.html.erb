@@ -1,9 +1,9 @@
 <body style="background-color: #8e476c">
-<div style="color: #ffc000; background-color: #8e476c;">
+<div style="color: #ffc000; background-color: #8e476c; padding-right: 3%; padding-left: 3%;">
 
 <h1><strong>Actividades</strong></h1>
 
-<table class="table">
+<table class="table" style=" margin-left: 2%; margin-right: 5%;">
   <thead>
     <tr>
       <th>Nombre</th>
@@ -13,7 +13,7 @@
     </tr>
   </thead>
 
-  <tbody>
+  <tbody style="border: 0 solid #ffc000">
     <% @actividads.each do |actividad| %>
       <tr>
         <td><%= actividad.nombre %></td>

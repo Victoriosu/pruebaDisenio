@@ -12,8 +12,14 @@ class Actividad < ApplicationRecord
 	end
 
 	def fecha?
-	  if self.fecha < Date.today+2.days
+	  if self.fecha == nil
+	  	errors.add :fecha, ": Debe seleccionar"
+	  	return false
+	  elsif self.fecha < Date.today+2.days
 	    errors.add :fecha, "La fecha de registro debe ser más de 48 hrs."
+	    return false
 	  end
 	end
+
+
 end

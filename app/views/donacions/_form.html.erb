@@ -22,7 +22,7 @@
           <div class="input-group-prepend">
               <span class="input-group-text"> <i class="far fa-money-bill-alt"></i> </span>
            </div>
-              <%= form.number_field :monto, id: :donacion_monto,style:"color:black;" %>
+              <%= form.number_field :monto,min:5000,:required => true, id: :donacion_monto,style:"color:black;" %>
               <%= form.hidden_field :user_id, value: current_user.id %>
           </div>
           

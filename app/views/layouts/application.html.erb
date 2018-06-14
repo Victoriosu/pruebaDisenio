@@ -13,7 +13,7 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
-
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     
 
 
@@ -40,7 +40,7 @@
 <% if user_signed_in? %>
   <div id="header">
     <nav class="navbar navbar-expand-lg navbar-light bg-light new_bg"">
-    <%= link_to 'La de Siempre', users_path, class: "navbar-brand",style:"height: 0%;" %> 
+    <%= link_to raw("<i class='material-icons' style='font-size: 44px; color: wheat;'>public</i>"), users_path, class: "navbar-brand",style:"height: 0%;" %> 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -75,26 +75,29 @@
               Actividades
             </a>
             <div class="dropdown-menu new_ddl" aria-labelledby="navbarDropdown">
-             <% if  user_signed_in? && current_user.perfil_id == 3 %>
-              <%= link_to 'Ver Todas', actividads_path , class: 'dropdown-item',style:"color: #ffc107;"%>
-              <div class="dropdown-divider" style="background-color: #ffc107; border:0.5px solid #ffc000 "></div>
+              <% if  user_signed_in? && current_user.perfil_id == 3 || current_user.perfil_id == 1  %>
+                <%= link_to 'Ver Todas', actividads_path , class: 'dropdown-item',style:"color: #ffc107;"%>
+                <div class="dropdown-divider" style="background-color: #ffc107; border:0.5px solid #ffc000 "></div>
               <% end %>
-              <%= link_to 'Ver mis actividades', '/actividades/pendientes' , class: 'dropdown-item',style:"color: #ffc107;"%>
-              <div class="dropdown-divider" style="background-color: #ffc107; border:0.5px solid #ffc000 "></div>
+              <% if user_signed_in? && current_user.perfil_id ==3 %>
+                <%= link_to 'Ver mis actividades', '/actividades/pendientes' , class: 'dropdown-item',style:"color: #ffc107;"%>
+                <div class="dropdown-divider" style="background-color: #ffc107; border:0.5px solid #ffc000 "></div>
+              <%end%>
               <%= link_to 'Ver Aprobadas', '/actividades/aprobadas' , class: 'dropdown-item',style:"color: #ffc107;" %>
             </div>
           </li>
-
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffc000;">
-              Donaciones
-            </a>
-            <div class="dropdown-menu new_ddl" aria-labelledby="navbarDropdown">
-              <%= link_to 'Mis donaciones', donacions_path , class: 'dropdown-item',style:"color: #ffc107;"%>
-              <div class="dropdown-divider" style="background-color: #ffc107; border:0.5px solid #ffc000 "></div>
-              <%= link_to 'Hacer donacion', new_donacion_path  , class: 'dropdown-item',style:"color: #ffc107;"%>
-            </div>
-          </li>
+          <% if user_signed_in? && current_user.perfil_id == 2 %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffc000;">
+                Donaciones
+              </a>
+              <div class="dropdown-menu new_ddl" aria-labelledby="navbarDropdown">
+                <%= link_to 'Mis donaciones', donacions_path , class: 'dropdown-item',style:"color: #ffc107;"%>
+                <div class="dropdown-divider" style="background-color: #ffc107; border:0.5px solid #ffc000 "></div>
+                <%= link_to 'Hacer donacion', new_donacion_path  , class: 'dropdown-item',style:"color: #ffc107;"%>
+              </div>
+            </li>
+          <% end %>
           
             <%= render "devise/shared/links" %>          
         </ul>

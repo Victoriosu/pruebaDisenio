@@ -7,7 +7,7 @@
       <div class="panel-body" style="color: white;background-color: #8e476c;border-color: #bce8f1;"> 
         <div  style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
           <%= form_with(model: actividad, local: true) do |form| %>
-            <% if actividad.errors.any? %>
+            <!--<% if actividad.errors.any? %>
               <div id="error_explanation">
                 <h2><%= pluralize(actividad.errors.count, "error") %> prohibited this actividad from being saved:</h2>
                   <ul>
@@ -16,26 +16,35 @@
                     <% end %>
                   </ul>
               </div>
-            <% end %>
+            <% end %>-->
+            <div class="form-group input-group">
+              <div class="input-group-prepend" >
+                <span class="input-group-text" style="padding-right: 10px;"> <i class="far fa-clipboard"></i> </span>
+              </div>
+              <%= form.text_field :nombre,:required => true, id: :actividad_nombre,style:"color:black;", placeholder:"Nombre de la actividad" %>
+            </div>
 
-            <div class="field">
-              <%= form.label :nombre %>
-              <%= form.text_field :nombre, id: :actividad_nombre %>
+            <div class="form-group input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" style="padding-right: 10px;"> <i class="fa fa-calendar"></i> </span>
+              </div>
+              <%= form.date_field :fecha,:required => true, id: :actividad_fecha, min: Date.today+2.days, style:"color:black; line-height: 24px;" %>
             </div>
-            <div class="field">
-              <%= form.label :fecha %>
-              <%= form.date_field :fecha, id: :actividad_fecha, min: Date.today+2.days %>
-            </div>
+
+            
             <% if !actividad.new_record? %>
               <div class="field">
                 <%= form.label :estado %>
                 <%= form.collection_select :estado, ['Pendiente', 'Aprobado', 'Rechazado', 'Cancelado'], :to_s, :to_s %>
               </div>
             <% end %>
-            <div class="actions">
+
+              <div class="actions">
               <%= form.hidden_field :user_id, value: current_user.id %>
-              <%= form.submit %>
-              <%= link_to 'Volver', actividads_path %>
+              <div class="btn new_btn2" style="padding: 0; margin: 0;">
+                <%= form.submit %>
+              </div>
+              <%= link_to 'Volver', actividads_path,class:"btn new_btn2",style:"height:35px;" %>
             </div>
           <% end %>
       </div>

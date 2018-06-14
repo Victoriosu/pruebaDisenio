@@ -1,14 +1,33 @@
-<p id="notice"><%= notice %></p>
+<div class="container">
+	<table class="table">
+		<thead>
+			<tr>
+				<td><strong>Usuario que realizó la donación</strong></td>
+				<td><strong>Monto de la donación</strong></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><%= @donacion.user.nombre_completo %></td>
+				<td><%= @donacion.monto %></td>
+			</tr>
+		</tbody>
+	</table>
 
-<p>
-  <strong>User:</strong>
-  <%= @donacion.user.nombre_completo %>
-</p>
+	<table class="table" style="border: 0px solid #8e476c">
+		<thead style="border: none;">
+			<tr>
+				<td><%= link_to 'Aceptar', donacions_path, class:"btn new_btn2", style:"width: 100%;"%></td>
+			</tr>
 
-<p>
-  <strong>Monto:</strong>
-  <%= @donacion.monto %>
-</p>
+		</thead>
+		<tbody style="border: none;">
+			<tr>
+				
+			</tr>
+		</tbody>
+	</table>
+	
 
-<%= link_to 'Editar', edit_donacion_path(@donacion) %> |
-<%= link_to 'Volver', donacions_path %>
+	
+</div>

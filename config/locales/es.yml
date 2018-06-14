@@ -9,12 +9,9 @@ es:
       user:
         signed_in: "Sesión iniciada"
 
-    :registrations:
+    registrations:
       user:
         signed_up: "Usuario creado y sesión iniciada"
-    
-
-    
   activerecord:
     errors:
       messages:

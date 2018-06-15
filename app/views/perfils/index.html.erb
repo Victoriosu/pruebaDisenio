@@ -17,9 +17,9 @@
     <% @perfils.each do |perfil| %>
       <tr>
         <td><%= perfil.nombre %></td>
-        <td><%= link_to 'Mostrar ', perfil,style:"color: #ffc000" %></td>
-        <td><%= link_to 'Editar', edit_perfil_path(perfil),style:"color: #ffc000" %></td>
-        <td><%= link_to 'Eliminar', perfil, method: :delete, data: { confirm: 'Are you sure?' },style:"color: #ffc000" %></td>
+        <td><%= link_to raw("<i class='material-icons'>remove_red_eye</i>"), perfil,style:"color: #ffc000" %></td>
+        <td><%= link_to raw("<i class='material-icons'>edit</i>"), edit_perfil_path(perfil),style:"color: #ffc000" %></td>
+        <td><%= link_to raw("<i class='material-icons'>delete</i>"), perfil, method: :delete, data: { confirm: 'Are you sure?' },style:"color: #ffc000" %></td>
       </tr>
     <% end %>
   </tbody>

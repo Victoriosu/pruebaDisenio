@@ -20,8 +20,8 @@
         <td><%= user.fecha_nacimiento %></td>
         <td><%= user.perfil.nombre %></td>
         <% if user_signed_in? && current_user.perfil_id == 1%>
-        <td><%= link_to 'Editar', edit_user_path(user),style: "color: #ffc000;" %></td>
-        <td><%= link_to 'Eliminar', user, method: :delete,style:"color: #ffc000;", data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to raw("<i class='material-icons'>edit</i>"), edit_user_path(user),style: "color: #ffc000;" %></td>
+        <td><%= link_to raw("<i class='material-icons'>delete</i>"), user, method: :delete,style:"color: #ffc000;", data: { confirm: 'Are you sure?' } %></td>
         <% end%>
       </tr>
     <% end %>

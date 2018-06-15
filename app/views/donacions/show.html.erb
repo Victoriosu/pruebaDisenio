@@ -1,12 +1,12 @@
 <div class="container">
 	<table class="table">
-		<thead>
+		<thead style="color:#ffc000;">
 			<tr>
 				<td><strong>Usuario que realizó la donación</strong></td>
 				<td><strong>Monto de la donación</strong></td>
 			</tr>
 		</thead>
-		<tbody>
+		<tbody style="color:#ffc000;">
 			<tr>
 				<td><%= @donacion.user.nombre_completo %></td>
 				<td><%= @donacion.monto %></td>
@@ -15,9 +15,9 @@
 	</table>
 
 	<table class="table" style="border: 0px solid #8e476c">
-		<thead style="border: none;">
+		<thead style="border: none; ">
 			<tr>
-				<td><%= link_to 'Aceptar', donacions_path, class:"btn new_btn2", style:"width: 100%;"%></td>
+				<td><%= link_to 'Aceptar', donacions_path, class:"btn new_btn2", style:"width: 100%; "%></td>
 			</tr>
 
 		</thead>

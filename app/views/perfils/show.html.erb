@@ -1,9 +1,10 @@
 <p id="notice"><%= notice %></p>
+<div style="color: #ffc000;">
+	<p>
+	  <strong>Nombre:</strong>&nbsp;
+	  <%= @perfil.nombre %>
+	</p>
 
-<p>
-  <strong>Nombre:</strong>
-  <%= @perfil.nombre %>
-</p>
-
-<%= link_to 'Edit', edit_perfil_path(@perfil) %> |
-<%= link_to 'Back', perfils_path %>
+	<%= link_to raw("<i class='material-icons'>edit</i>"), edit_perfil_path(@perfil),style:"color:#ffc000;" %> |
+	<%= link_to 'Volver', perfils_path,class:"btn  new_btn2" %>
+</div>

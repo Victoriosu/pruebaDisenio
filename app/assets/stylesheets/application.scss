@@ -20,6 +20,17 @@
   font-style: normal;
 }
 
+.navbar-collapse.new_collapse
+{
+    flex-basis: 100% !important;
+    -webkit-box-flex: 1 !important;
+    flex-grow: 1 !important;
+    -webkit-box-align: center !important;
+    align-items: center !important;
+    height: 120px !important;
+}
+
+
 html{
   background-color: #480024;
 }

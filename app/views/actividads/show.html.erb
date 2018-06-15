@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
-<table class="table">
-	<thead>
+<table class="table" font-color="white">
+	<thead style="color: #ffc000;">
 		<tr>
 			<td><strong>Nombre</strong></td>
 			<td><strong>Fecha</strong></td>
 			<td><strong>Estado</strong></td>
 		</tr>
 	</thead>
-	<tbody>
+	<tbody style="color: #ffc000;">
 		<tr>
 			<td><%= @actividad.nombre %></td>
 			<td><%= @actividad.fecha %></td>
@@ -17,5 +17,5 @@
 </table>
 
 
-<%= link_to 'Editar', edit_actividad_path(@actividad) %> |
-<%= link_to 'Volver', actividads_path %>
+<%= link_to raw("<i class='material-icons'>edit</i>"), edit_actividad_path(@actividad),style:"color:#ffc000;" %> |
+<%= link_to 'Volver', actividads_path,class:"btn  new_btn2" %>

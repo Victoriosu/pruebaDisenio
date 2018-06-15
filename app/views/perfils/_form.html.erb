@@ -1,9 +1,15 @@
 <div class="container new_container">
   <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
     <div class="panel panel-info">
-      <div class="panel-heading" style="color: white;background-color: #8e476c;border-color: #bce8f1;">
-        <div class="panel-title">Nuevo perfil</div>
-      </div>
+      <% if perfil.id? %>
+          <div class="panel-heading" style="color: white;background-color: #8e476c;border-color: #bce8f1;">
+            <div class="panel-title">Editar Perfil</div>
+          </div>
+        <%else%>
+          <div class="panel-heading" style="color: white;background-color: #8e476c;border-color: #bce8f1;">
+            <div class="panel-title">Nuevo perfil</div>
+          </div>
+      <%end %>
       <div class="panel-body" style="color: white;background-color: #8e476c;border-color: #bce8f1;"> 
         <div  style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
         <%= form_with(model: perfil, local: true) do |form| %>

@@ -1,37 +1,38 @@
-<body style="background-color: #8e476c">
-<div style="color: #ffc000; background-color: #8e476c; padding-right: 3%; padding-left: 3%;">
 
-<h1><strong>Actividades</strong></h1>
+<div style="color: #ffc000; background-color: #480d25; padding-right: 3%; padding-left: 3%;">
 
-<table class="table" style=" margin-left: 2%; margin-right: 5%;">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Fecha</th>
-      <th>Estado</th>
-      <th colspan="4">Opciones</th>
-    </tr>
-  </thead>
 
-  <tbody style="border: 0 solid #ffc000">
-    <% @actividads.each do |actividad| %>
+<div class="jumbotron" style="background: #9d5569;padding-right: 4%;padding-top: 2%;margin-top: 4%;">
+  <div style="text-align: center;"><h2><strong>Actividades</strong></h2></div>
+  <table class="table" style=" margin-left: 2%; margin-right: 5%;">
+    <thead>
       <tr>
-        <td><%= actividad.nombre %></td>
-        <td><%= actividad.fecha %></td>
-        <td><%= actividad.estado %></td>
-        <td><%= link_to 'Mostrar', actividad,style:"color: #ffc000;" %></td>
-        <% if actividad.estado == "Pendiente" %>
-          <td><%= link_to 'Eliminar', actividad, method: :delete,style:"color: #ffc000;", data: { confirm: 'Seguro que desea eliminar la actividad?' } %></td>
-          <% if current_user.perfil_id == 1 %>
-            <td><%= link_to 'Aprobar', aprobar_actividad_path( actividad_id: actividad.id), style:"color: #ffc000;" %></td>
-          <% end %>
-        <% end %>
-
+        <th>Nombre</th>
+        <th>Fecha</th>
+        <th>Estado</th>
+        <th colspan="4">Opciones</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
+    <tbody style="border: 0 solid #ffc000">
+      <% @actividads.each do |actividad| %>
+        <tr>
+          <td><%= actividad.nombre %></td>
+          <td><%= actividad.fecha %></td>
+          <td><%= actividad.estado %></td>
+          <td><%= link_to 'Mostrar', actividad,style:"color: #ffc000;" %></td>
+          <% if actividad.estado == "Pendiente" %>
+            <td><%= link_to 'Eliminar', actividad, method: :delete,style:"color: #ffc000;", data: { confirm: 'Seguro que desea eliminar la actividad?' } %></td>
+            <% if current_user.perfil_id == 1 %>
+              <td><%= link_to 'Aprobar', aprobar_actividad_path( actividad_id: actividad.id), style:"color: #ffc000;" %></td>
+            <% end %>
+          <% end %>
+
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <br>
 
 <%= link_to 'Crear nueva actividad', new_actividad_path,class: "nav-link btn new_btn2",style:"width: 95%; margin-left:2%;" %>

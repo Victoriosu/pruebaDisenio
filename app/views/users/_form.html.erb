@@ -1,56 +1,75 @@
-<%= form_with(model: user, local: true) do |f| %>
-  <% if user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+<div class="container new_container">
+  <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+      <div class="panel-heading" style="color: white;background-color: #8e476c;border-color: #bce8f1;">
+        <div class="panel-title">Nuevo Usuario</div>
+      </div>
+      <div class="panel-body" style="color: white;background-color: #8e476c;border-color: #bce8f1;"> 
+        <div  style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+          <%= form_with(model: user, local: true) do |f| %>
+                <div class="form-group input-group">
+                <div class="input-group-prepend" >
+                  <span class="input-group-text" style="padding-right: 10px;"> <i class="glyphicon glyphicon-user"></i> </span>
+                </div>
+                  <%= f.text_field :nombre_completo %>  
+                </div>
+                
+                <div class="form-group input-group">
+                <div class="input-group-prepend" >
+                  <span class="input-group-text" style="padding-right: 10px;"> <i class="glyphicon glyphicon-user"></i> </span>
+                </div>
+                  <%= f.date_field :fecha_nacimiento, autocomplete: "off", max: Date.today %>
+                </div>
+                
+                <div class="form-group input-group">
+                <div class="input-group-prepend" >
+                  <span class="input-group-text" style="padding-right: 10px;"> <i class="glyphicon glyphicon-user"></i> </span>
+                </div>
+                  <%= f.text_field :telefono %>
+                </div>
+                <div class="form-group input-group">
+                <div class="input-group-prepend" >
+                  <span class="input-group-text" style="padding-right: 10px;"> <i class="glyphicon glyphicon-user"></i> </span>
+                </div>
+                  <%= f.text_field :direccion %>
+                </div>
+                <div class="form-group input-group">
+                <div class="input-group-prepend" >
+                  <span class="input-group-text" style="padding-right: 10px;"> <i class="glyphicon glyphicon-user"></i> </span>
+                </div>
+                  <%= f.collection_select :perfil_id, Perfil.all, :id, :nombre%>
+                </div>
 
-      <ul>
-  <% end %>
-      <% user.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-      <div class="field">
-        <%= f.label :nombre %><br />
-        <%= f.text_field :nombre_completo %>  
-      </div>
-      <div class="field">
-        <%= f.label :fecha_nacimiento %><br />
-        <%= f.date_field :fecha_nacimiento, autocomplete: "off", max: Date.today %>
-      </div>
-      <div class="field">
-        <%= f.label :telefono %><br />
-        <%= f.text_field :telefono %>
-      </div>
-      <div class="field">
-        <%= f.label :direccion %><br />
-        <%= f.text_field :direccion %>
-      </div>
-      <div class="field">
-        <%= f.label :perfil_id %><br />
-        <%= f.collection_select :perfil_id, Perfil.all, :id, :nombre%>
-      </div>
+                <div class="form-group input-group">
+                <div class="input-group-prepend" >
+                  <span class="input-group-text" style="padding-right: 10px;"> <i class="glyphicon glyphicon-user"></i> </span>
+                </div>
+                  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+                </div>
 
-      <div class="field">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-      </div>
+                <div class="form-group input-group">
+                <div class="input-group-prepend" >
+                  <span class="input-group-text" style="padding-right: 10px;"> <i class="glyphicon glyphicon-user"></i> </span>
+                </div>
+                  <% if @minimum_password_length %>
+                  <em>(<%= @minimum_password_length %> characters minimum)</em>
+                  <% end %><br />
+                  <%= f.password_field :password, autocomplete: "off" %>
+                </div>
 
-      <div class="field">
-        <%= f.label :password %>
-        <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> characters minimum)</em>
-        <% end %><br />
-        <%= f.password_field :password, autocomplete: "off" %>
-      </div>
-
-      <div class="field">
-        <%= f.label :password_confirmation %><br />
-        <%= f.password_field :password_confirmation, autocomplete: "off" %>
-      </div>
+                <div class="form-group input-group">
+                <div class="input-group-prepend" >
+                  <span class="input-group-text" style="padding-right: 10px;"> <i class="glyphicon glyphicon-user"></i> </span>
+                </div>
+                  <%= f.password_field :password_confirmation, autocomplete: "off" %>
+                </div>
 
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+            <div class="actions">
+              <%= f.submit %>
+            </div>
+          <% end %>
+</div>
+</div>
+</div>
+</div>

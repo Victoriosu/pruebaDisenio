@@ -1,22 +1,26 @@
-<%= form_with(model: perfil, local: true) do |form| %>
-  <% if perfil.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(perfil.errors.count, "error") %> prohibited this perfil from being saved:</h2>
-
-      <ul>
-      <% perfil.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+<div class="container new_container">
+  <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+    <div class="panel panel-info">
+      <div class="panel-heading" style="color: white;background-color: #8e476c;border-color: #bce8f1;">
+        <div class="panel-title">Nuevo perfil</div>
+      </div>
+      <div class="panel-body" style="color: white;background-color: #8e476c;border-color: #bce8f1;"> 
+        <div  style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
+        <%= form_with(model: perfil, local: true) do |form| %>
+          <div class="form-group input-group">
+              <div class="input-group-prepend" >
+                <span class="input-group-text" style="padding-right: 10px;"> <i class="glyphicon glyphicon-user"></i> </span>
+              </div>
+              <%= form.text_field :nombre, id: :perfil_nombre, placeholder: 'Nombre' %>
+          </div>
+          <div class="actions">
+              
+              <%= form.submit %>
+              
+              <%= link_to 'Volver', perfils_path,class:"btn new_btn2",style:"height:35px;" %>
+          </div>
+        <% end %>      
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :nombre %>
-    <%= form.text_field :nombre, id: :perfil_nombre %>
   </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
+</div>

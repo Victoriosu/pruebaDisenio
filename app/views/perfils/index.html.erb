@@ -1,11 +1,12 @@
-<body style="background-color: #8e476c">
-<div style="color: #ffc000; background-color: #8e476c; padding-right: 3%; padding-left: 3%;">
+<div style="color: #ffc000; padding-right: 3%; padding-left: 3%;">
 <p id="notice"><%= notice %></p>
 
-<h1>Perfils</h1>
 
+
+<div class="jumbotron" style="background: #9d5569;padding-right: 4%;padding-top: 2%;margin-top: 4%;">
+  <div style="text-align: center;"><h2>Perfiles</h2></div>
 <table class="table">
-  <thead style="background-color: #8e476c;">
+  <thead>
     <tr>
       <th>Nombre</th>
       <th colspan="3">Opciones</th>
@@ -23,10 +24,10 @@
     <% end %>
   </tbody>
 </table>
-
+</div>
 <br>
 
 <%= link_to 'Crear un perfil', new_perfil_path, class: "nav-link btn new_btn2",style:"width: 95%; margin-left:2%;" %>
 
 </div>
-</body>
+

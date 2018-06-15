@@ -14,7 +14,7 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.11.1/build/css/themes/bootstrap.min.css"/>
 
 
 
@@ -39,24 +39,14 @@
   <body>
 <% if user_signed_in? %>
   <div id="header">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light new_bg"">
-    <%= link_to raw("<i class='material-icons' style='font-size: 44px; color: wheat;'>public</i>"), users_path, class: "navbar-brand",style:"height: 0%;" %> 
+    <nav class="navbar navbar-expand-lg navbar-light bg-light new_bg" style="margin-bottom: 0">
+    <%= link_to raw("<i class='material-icons' style='font-size: 44px; color: wheat;'>public</i>"), actividads_path, class: "navbar-brand",style:"height: 0%;" %> 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <% if user_signed_in? && current_user.perfil_id == 1 %>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffc000;">
-              Usuarios
-            </a>
-            <div class="dropdown-menu new_ddl" aria-labelledby="navbarDropdown">
-              <%= link_to 'Ver Todos', users_path, class: 'dropdown-item',style:"color: #ffc107;"%>
-              <div class="dropdown-divider"  style="background-color: #ffc107; border:0.5px solid #ffc000 "></div>
-              <%= link_to 'Crear Usuario', new_user_path, class: 'dropdown-item',style:"color: #ffc107;" %>
-            </div>
-          </li>
           <%end%>
           <% if user_signed_in? && current_user.perfil_id == 1 %>
           <li class="nav-item dropdown">

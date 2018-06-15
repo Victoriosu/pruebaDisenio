@@ -9,4 +9,4 @@
 Perfil.create(nombre: 'Administrador')
 Perfil.create(nombre: 'Donante')
 Perfil.create(nombre: 'Voluntario')
-
+User.create(email: "admin@admin.cl", password: "password", password_confirmation: "password", perfil_id: 1)

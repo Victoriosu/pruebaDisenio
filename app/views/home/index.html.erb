@@ -1,0 +1,93 @@
+<h1>Home</h1>
+
+<div id="piechart" style="width: 900px; height: 500px;"></div>
+<div id="piechart2" style="width: 900px; height: 500px;"></div>
+<div id="piechart3" style="width: 900px; height: 500px;"></div>
+<div id="piechart4" style="width: 900px; height: 500px;"></div>
+
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable(<%= raw @aux %>);
+
+        var options = {
+          title: 'Donaciones en este mes'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+
+      // google.charts.load('current', {'packages':['corechart']});
+      // google.charts.setOnLoadCallback(drawChart);
+
+      // function drawChart() {
+
+      //   var data = google.visualization.arrayToDataTable([
+      //     ['Task', 'Hours per Day'],
+      //     ['Work',     11],
+      //     ['Eat',      2],
+      //     ['Commute',  2],
+      //     ['Watch TV', 2],
+      //     ['Sleep',    7]
+      //   ]);
+
+      //   var options = {
+      //     title: 'My Daily Activities'
+      //   };
+
+      //   var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
+
+      //   chart.draw(data, options);
+      // }
+
+      // google.charts.load('current', {'packages':['corechart']});
+      // google.charts.setOnLoadCallback(drawChart);
+
+      // function drawChart() {
+
+      //   var data = google.visualization.arrayToDataTable([
+      //     ['Task', 'Hours per Day'],
+      //     ['Work',     11],
+      //     ['Eat',      2],
+      //     ['Commute',  2],
+      //     ['Watch TV', 2],
+      //     ['Sleep',    7]
+      //   ]);
+
+      //   var options = {
+      //     title: 'My Daily Activities'
+      //   };
+
+      //   var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
+
+      //   chart.draw(data, options);
+      // }
+
+      // google.charts.load('current', {'packages':['corechart']});
+      // google.charts.setOnLoadCallback(drawChart);
+
+      // function drawChart() {
+
+      //   var data = google.visualization.arrayToDataTable([
+      //     ['Task', 'Hours per Day'],
+      //     ['Work',     11],
+      //     ['Eat',      2],
+      //     ['Commute',  2],
+      //     ['Watch TV', 2],
+      //     ['Sleep',    7]
+      //   ]);
+
+      //   var options = {
+      //     title: 'My Daily Activities'
+      //   };
+
+      //   var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
+
+      //   chart.draw(data, options);
+      // }
+</script>

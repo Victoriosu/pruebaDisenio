@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
   resources :permiso_perfils
   resources :perfils
   resources :permisos

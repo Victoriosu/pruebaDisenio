@@ -13,7 +13,8 @@ User.create(email: "admin@admin.cl", password: "password", password_confirmation
 User.create(email: "admin@admin.cl1", password: "password", password_confirmation: "password", perfil_id: 1, nombre_completo: 'Pepe')
 User.create(email: "admin@admin.cl2", password: "password", password_confirmation: "password", perfil_id: 1, nombre_completo: 'Carlo',created_at: Time.now+1.month)
 
-Donacion.create(user_id: 1, monto: 10000, created_at: Time.nowDonacion.create(user_id: 2, monto: 13000, created_at: Time.now)
+Donacion.create(user_id: 1, monto: 10000, created_at: Time.now)
+Donacion.create(user_id: 2, monto: 13000, created_at: Time.now)
 Donacion.create(user_id: 3, monto: 11000, created_at: Time.now)
 Donacion.create(user_id: 1, monto: 300000, created_at: Time.now)
 Donacion.create(user_id: 1, monto: 245688, created_at: Time.now)

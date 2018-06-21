@@ -1,9 +1,14 @@
-<h1>Home</h1>
 
-<div id="piechart" style="width: 900px; height: 500px;"></div>
-<div id="piechart2" style="width: 900px; height: 500px;"></div>
-<div id="piechart3" style="width: 900px; height: 500px;"></div>
-<div id="piechart4" style="width: 900px; height: 500px;"></div>
+<div id="piechart" style="width: 900px;margin-left: 12%; height: 500px;"></div>
+<br>
+<div id="piechart2" style="width: 900px;margin-left: 12%; height: 500px;"></div>
+<br>
+<div id="piechart3" style="width: 900px;margin-left: 12%; height: 500px;"></div>
+<br>
+<div id="piechart4" style="width: 900px;margin-left: 12%; height: 500px;"></div>
+<br>
+<div id="columnchart_values" style="width: 900px;margin-left: 12%; height: 500px;"></div>
+
 
 <script type="text/javascript">
       google.charts.load('current', {'packages':['corechart']});
@@ -21,29 +26,25 @@
 
         chart.draw(data, options);
       }
+</script>
+<script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
-      // google.charts.load('current', {'packages':['corechart']});
-      // google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
 
-      // function drawChart() {
+        var data = google.visualization.arrayToDataTable(<%= raw @aux2 %>);
 
-      //   var data = google.visualization.arrayToDataTable([
-      //     ['Task', 'Hours per Day'],
-      //     ['Work',     11],
-      //     ['Eat',      2],
-      //     ['Commute',  2],
-      //     ['Watch TV', 2],
-      //     ['Sleep',    7]
-      //   ]);
+        var options = {
+          title: 'Usuarios Registrados'
+        };
 
-      //   var options = {
-      //     title: 'My Daily Activities'
-      //   };
+        var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
 
-      //   var chart = new google.visualization.PieChart(document.getElementById('piechart2'));
-
-      //   chart.draw(data, options);
-      // }
+        chart.draw(data, options);
+      }
+</script>
+<script type="text/javascript">
 
       // google.charts.load('current', {'packages':['corechart']});
       // google.charts.setOnLoadCallback(drawChart);
@@ -67,27 +68,61 @@
 
       //   chart.draw(data, options);
       // }
+</script>
+<script type="text/javascript">
 
-      // google.charts.load('current', {'packages':['corechart']});
-      // google.charts.setOnLoadCallback(drawChart);
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
 
-      // function drawChart() {
+      function drawChart() {
 
-      //   var data = google.visualization.arrayToDataTable([
-      //     ['Task', 'Hours per Day'],
-      //     ['Work',     11],
-      //     ['Eat',      2],
-      //     ['Commute',  2],
-      //     ['Watch TV', 2],
-      //     ['Sleep',    7]
-      //   ]);
+        var data = google.visualization.arrayToDataTable(
 
-      //   var options = {
-      //     title: 'My Daily Activities'
-      //   };
+        var options = {
+          title: 'Actividades Mensuales'
+        };
 
-      //   var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
+        var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
 
-      //   chart.draw(data, options);
-      // }
+        chart.draw(data, options);
+      }
+</script>
+<script type="text/javascript">
+      google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ["Mes", "Actividades al Mes", { role: "style" } ],
+        ["Enero", 8.94, "#b87333"],
+        ["Febrero", 8.94, "#b87333"],
+        ["Marzo", 8.94, "#b87333"],
+        ["Abril", 8.94, "#b87333"],
+        ["Mayo", 8.94, "#b87333"],
+        ["Junio", 8.94, "#b87333"],
+        ["Julio", 8.94, "#b87333"],
+        ["Agosto", 8.94, "#b87333"],
+        ["Septiembre", 8.94, "#b87333"],
+        ["Octubre", 8.94, "#b87333"],
+        ["Noviembre", 8.94, "#b87333"],
+        ["Diciembre", 8.94, "#b87333"],
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Actividades Mensuales",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "40%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
 </script>

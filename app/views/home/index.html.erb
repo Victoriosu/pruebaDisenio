@@ -29,7 +29,7 @@
         var data = google.visualization.arrayToDataTable(<%= raw @aux %>);
 
         var options = {
-          title: 'Donaciones en este mes <%= @total_donaciones %>',  
+          title: 'Donaciones en este mes <%= number_to_currency(@total_mes) %>',  
           width: 500,
           height: 300,
           backgroundColor: '#b2537c',
@@ -95,7 +95,7 @@
         var data = google.visualization.arrayToDataTable(<%= raw @aux2 %>);
 
         var options = {
-          title: 'Donaciones totales programadas',
+          title: 'Donaciones totales a la fecha <%= number_to_currency(@total_donaciones) %>',
           width: 500,
           height: 300,
           backgroundColor: '#b2537c',

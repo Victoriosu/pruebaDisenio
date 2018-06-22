@@ -2,7 +2,8 @@ class HomeController < ApplicationController
   def index
   	@donaciones_mensuales = Donacion.where('strftime("%m", created_at) > "#{Time.now.month}"')
   	@donaciones_proyectadas = Donacion.where('strftime("%m", created_at) > "#{Time.now.month}"')
-    @total_donaciones = Donacion.sum(:monto)
+    @total_donaciones = Donacion.where('strftime("%m", created_at) > "#{Time.now.month}"').sum(:monto)
+    @total_mes = Donacion.de_este_mes.sum(:monto)
   	@suma = 0
   	@usuario = nil
   	@aux = [["Usuario", "Donaciones en este mes"]]
@@ -23,11 +24,10 @@ class HomeController < ApplicationController
     end
     #grafico 3
     User.all.each do |user|
-      if user.donacions.futuras.count > 0
-        par = [user.nombre_completo , user.donacions.futuras.sum(:monto)]
+        par = [user.nombre_completo , user.donacions.sum(:monto)]
         @aux2 << par
-      end
     end
+
 
     #grafico 2    
     12.times do |mes|

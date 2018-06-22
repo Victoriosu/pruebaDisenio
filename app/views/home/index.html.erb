@@ -1,19 +1,19 @@
-<table style="">
+<table style="margin-left:15%; margin-top: 2%;">
   <tbody>
     <tr>
       <td>
-        <div id="piechart"></div>
+        <div style="border: 5px solid #470d26;color: white;" id="piechart"></div>
       </td>
       <td>
-        <div id="piechart2"></div>
+        <div style="border: 5px solid #470d26;" id="piechart2"></div>
       </td>
     </tr>
     <tr>
       <td>
-        <div id="piechart3"></div>
+        <div style="border: 5px solid #470d26" id="piechart3"></div>
       </td>
       <td>
-        <div id="piechart4"></div>
+        <div style="border: 5px solid #470d26" id="piechart4"></div>
       </td>
     </tr>
   </tbody>
@@ -29,12 +29,19 @@
         var data = google.visualization.arrayToDataTable(<%= raw @aux %>);
 
         var options = {
-          title: 'Donaciones en este mes'
+          title: 'Donaciones en este mes <%= @total_donaciones %>',  
+          width: 500,
+          height: 300,
+          backgroundColor: '#b2537c',
+          is3D: true,
+          titleTextStyle: {color: '#ffc000'},
+          legend: {textStyle: {color: '#ffc000'}}
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart'));
 
         chart.draw(data, options);
+
       }
 </script>
 <script type="text/javascript">
@@ -53,11 +60,22 @@
 
         var options = {
           title: 'Donaciones proyectadas por mes',
+          width: 500,
+          height: 300,
+          backgroundColor: '#b2537c',
+          is3D: true,
+          titleTextStyle: {color: '#ffc000'},
+          legend: {textStyle: {color: '#ffc000'}},
           hAxis: {
-            title: 'Mes'
+            title: 'Mes',
+            titleTextStyle: {color: '#ffc000'},
+            legend: {textStyle: {color: '#ffc000'}},
+          
           },
           vAxis: {
-            title: 'Monto ($)'
+            title: 'Monto ($)',
+            titleTextStyle: {color: '#ffc000'},
+            legend: {textStyle: {color: '#ffc000'}},
           }
         };
 
@@ -77,7 +95,13 @@
         var data = google.visualization.arrayToDataTable(<%= raw @aux2 %>);
 
         var options = {
-          title: 'Donaciones totales programadas'
+          title: 'Donaciones totales programadas',
+          width: 500,
+          height: 300,
+          backgroundColor: '#b2537c',
+          titleTextStyle: {color: '#ffc000'},
+          is3D: true,
+          legend: {textStyle: {color: '#ffc000'}},
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
@@ -100,11 +124,22 @@
 
         var options = {
           title: 'Actividades proyectadas por mes',
+          width: 500,
+          height: 300,
+          backgroundColor: '#b2537c',
+          titleTextStyle: {color: '#ffc000'},
+          legend: {textStyle: {color: '#ffc000'}},
           hAxis: {
-            title: 'Mes'
+            baselineColor: 'red',
+            title: 'Mes',
+            titleTextStyle: {color: '#ffc000'},
+            legend: {textStyle: {color: '#ffc000'}},
+            
           },
           vAxis: {
-            title: 'Cantidad'
+            title: 'Cantidad',
+            titleTextStyle: {color: '#ffc000'},
+            legend: {textStyle: {color: '#ffc000'}},
           }
         };
 

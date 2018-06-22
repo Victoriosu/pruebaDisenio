@@ -97,6 +97,16 @@
               </div>
             </li>
           <% end %>
+          <% if user_signed_in? && current_user.perfil_id == 1 %>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffc000;">
+                Gráficas
+              </a>
+              <div class="dropdown-menu new_ddl" aria-labelledby="navbarDropdown">
+                <%= link_to 'Gráficas', home_index_path , class: 'dropdown-item',style:"color: #ffc107;"%>
+              </div>
+            </li>
+          <% end %>
           
             <%= render "devise/shared/links" %>          
         </ul>

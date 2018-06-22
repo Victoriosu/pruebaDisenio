@@ -1,16 +1,26 @@
-
-<div id="piechart" style="width: 900px;margin-left: 12%; height: 500px;"></div>
-<br>
-<div id="piechart2" style="width: 900px;margin-left: 12%; height: 500px;"></div>
-<br>
-<div id="piechart3" style="width: 900px;margin-left: 12%; height: 500px;"></div>
-<br>
-<div id="piechart4" style="width: 900px;margin-left: 12%; height: 500px;"></div>
-<br>
-<div id="columnchart_values" style="width: 900px;margin-left: 12%; height: 500px;"></div>
-
-
+<table style="">
+  <tbody>
+    <tr>
+      <td>
+        <div id="piechart"></div>
+      </td>
+      <td>
+        <div id="piechart2"></div>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <div id="piechart3"></div>
+      </td>
+      <td>
+        <div id="piechart4"></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<!-- mensuales -->
 <script type="text/javascript">
+
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
@@ -28,6 +38,37 @@
       }
 </script>
 <script type="text/javascript">
+
+      //proyectadas
+      google.charts.load('current', {packages: ['corechart', 'bar']});
+      google.charts.setOnLoadCallback(drawBasic);
+
+      function drawBasic() {
+
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Mes');
+        data.addColumn('number', 'Dinero a donar');
+
+        data.addRows(<%= raw @aux3 %>);
+
+        var options = {
+          title: 'Donaciones proyectadas por mes',
+          hAxis: {
+            title: 'Mes'
+          },
+          vAxis: {
+            title: 'Monto ($)'
+          }
+        };
+
+        var chart = new google.visualization.ColumnChart(
+          document.getElementById('piechart2'));
+
+        chart.draw(data, options);
+      }
+</script>
+<script type="text/javascript">
+      // por usuario proyectadas
       google.charts.load('current', {'packages':['corechart']});
       google.charts.setOnLoadCallback(drawChart);
 
@@ -36,7 +77,7 @@
         var data = google.visualization.arrayToDataTable(<%= raw @aux2 %>);
 
         var options = {
-          title: 'Usuarios Registrados'
+          title: 'Donaciones totales programadas'
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
@@ -45,84 +86,31 @@
       }
 </script>
 <script type="text/javascript">
+      //actividades
+      google.charts.load('current', {packages: ['corechart', 'bar']});
+      google.charts.setOnLoadCallback(drawBasic);
 
-      // google.charts.load('current', {'packages':['corechart']});
-      // google.charts.setOnLoadCallback(drawChart);
+      function drawBasic() {
 
-      // function drawChart() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Mes');
+        data.addColumn('number', 'Actividades');
 
-      //   var data = google.visualization.arrayToDataTable([
-      //     ['Task', 'Hours per Day'],
-      //     ['Work',     11],
-      //     ['Eat',      2],
-      //     ['Commute',  2],
-      //     ['Watch TV', 2],
-      //     ['Sleep',    7]
-      //   ]);
-
-      //   var options = {
-      //     title: 'My Daily Activities'
-      //   };
-
-      //   var chart = new google.visualization.PieChart(document.getElementById('piechart3'));
-
-      //   chart.draw(data, options);
-      // }
-</script>
-<script type="text/javascript">
-
-      google.charts.load('current', {'packages':['corechart']});
-      google.charts.setOnLoadCallback(drawChart);
-
-      function drawChart() {
-
-        var data = google.visualization.arrayToDataTable(
+        data.addRows(<%= raw @aux4 %>);
 
         var options = {
-          title: 'Actividades Mensuales'
+          title: 'Actividades proyectadas por mes',
+          hAxis: {
+            title: 'Mes'
+          },
+          vAxis: {
+            title: 'Cantidad'
+          }
         };
 
-        var chart = new google.visualization.PieChart(document.getElementById('piechart4'));
+        var chart = new google.visualization.ColumnChart(
+          document.getElementById('piechart4'));
 
         chart.draw(data, options);
       }
-</script>
-<script type="text/javascript">
-      google.charts.load("current", {packages:['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ["Mes", "Actividades al Mes", { role: "style" } ],
-        ["Enero", 8.94, "#b87333"],
-        ["Febrero", 8.94, "#b87333"],
-        ["Marzo", 8.94, "#b87333"],
-        ["Abril", 8.94, "#b87333"],
-        ["Mayo", 8.94, "#b87333"],
-        ["Junio", 8.94, "#b87333"],
-        ["Julio", 8.94, "#b87333"],
-        ["Agosto", 8.94, "#b87333"],
-        ["Septiembre", 8.94, "#b87333"],
-        ["Octubre", 8.94, "#b87333"],
-        ["Noviembre", 8.94, "#b87333"],
-        ["Diciembre", 8.94, "#b87333"],
-      ]);
-
-      var view = new google.visualization.DataView(data);
-      view.setColumns([0, 1,
-                       { calc: "stringify",
-                         sourceColumn: 1,
-                         type: "string",
-                         role: "annotation" },
-                       2]);
-
-      var options = {
-        title: "Actividades Mensuales",
-        width: 600,
-        height: 400,
-        bar: {groupWidth: "40%"},
-        legend: { position: "none" },
-      };
-      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
-      chart.draw(view, options);
-  }
 </script>

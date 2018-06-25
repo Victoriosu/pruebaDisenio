@@ -24,9 +24,9 @@ default: &default
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
-  adapter: sqlite3
-  username: root
-  password: mysql
+  adapter: postgresql
+  username: matias
+  password: 1633
   encoding: unicode
   database: prueba_diseño_development
 

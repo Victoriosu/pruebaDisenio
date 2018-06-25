@@ -11,7 +11,7 @@
 #Perfil.create(nombre: 'Voluntario')
 
 
-User.create(email: "voluntario@voluntario.cl", password: "password", password_confirmation: "password", perfil_id: Perfil.third.id, nombre_completo: 'Sebastián Piñera',created_at: Time.now-1.month)
+User.create(email: "donante@donante.cl", password: "password", password_confirmation: "password", perfil_id: Perfil.second.id, nombre_completo: 'Leonardo Farcas',created_at: Time.now-2.month)
 
 Donacion.create(user_id: User.first.id, monto: 250000, created_at: Time.now)
 Donacion.create(user_id: User.second.id, monto: 23000, created_at: Time.now-1.month)

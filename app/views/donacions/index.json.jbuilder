@@ -1,1 +1,1 @@
-json.array! @donacions, partial: 'donacions/donacion', as: :donacion
+json.array! @Donacions, partial: 'Donacions/Donacion', as: :Donacion

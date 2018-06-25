@@ -23,7 +23,7 @@
           <td><%= link_to raw("<i class='material-icons'>remove_red_eye</i>"), actividad,style:"color: #ffc000;" %></td>
           <% if actividad.estado == "Pendiente" %>
             <td><%= link_to raw("<i class='material-icons'>delete</i>"), actividad, method: :delete,style:"color: #ffc000;", data: { confirm: 'Seguro que desea eliminar la actividad?' } %></td>
-            <% if current_user.perfil_id == 1 %>
+            <% if current_user.perfil.nombre == "Administrador" %>
               <td><%= link_to 'Aprobar', aprobar_actividad_path( actividad_id: actividad.id), style:"color: #ffc000;" %></td>
             <% end %>
           <% end %>

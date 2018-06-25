@@ -1,1 +1,1 @@
-json.partial! "donacions/donacion", donacion: @donacion
+json.partial! "Donacions/Donacion", Donacion: @Donacion

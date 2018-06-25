@@ -6,14 +6,14 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-Perfil.create(nombre: 'Administrador')
-Perfil.create(nombre: 'Donante')
-Perfil.create(nombre: 'Voluntario')
+#Perfil.create(nombre: 'Administrador')
+#Perfil.create(nombre: 'Donante')
+#Perfil.create(nombre: 'Voluntario')
 
 
-User.create(email: "admin@admin.cl", password: "password", password_confirmation: "password", perfil_id: 1, nombre_completo: 'Júan Perez',created_at: Time.now-3.month)
-User.create(email: "donante@donante.cl", password: "password", password_confirmation: "password", perfil_id: 2, nombre_completo: 'Leonardo Farcas',created_at: Time.now-2.month)
-User.create(email: "voluntario@voluntario.cl", password: "password", password_confirmation: "password", perfil_id: 3, nombre_completo: 'Sebastián Piñera',created_at: Time.now-1.month)
+#User.create(email: "admin@admin.cl", password: "password", password_confirmation: "password", perfil_id: Perfil.first.id, nombre_completo: 'Júan Perez',created_at: Time.now-3.month)
+#User.create(email: "donante@donante.cl", password: "password", password_confirmation: "password", perfil_id: Perfil.second.id, nombre_completo: 'Leonardo Farcas',created_at: Time.now-2.month)
+#User.create(email: "voluntario@voluntario.cl", password: "password", password_confirmation: "password", perfil_id: Perfil.third.id, nombre_completo: 'Sebastián Piñera',created_at: Time.now-1.month)
 
 
 

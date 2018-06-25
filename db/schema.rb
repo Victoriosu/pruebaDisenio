@@ -22,12 +22,12 @@ ActiveRecord::Schema.define(version: 20180601024812) do
     t.index ["user_id"], name: "index_actividads_on_user_id"
   end
 
-  create_table "donacions", force: :cascade do |t|
+  create_table "Donacions", force: :cascade do |t|
     t.integer "user_id"
     t.integer "monto"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_donacions_on_user_id"
+    t.index ["user_id"], name: "index_Donacions_on_user_id"
   end
 
   create_table "perfils", force: :cascade do |t|

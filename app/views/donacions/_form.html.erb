@@ -6,12 +6,12 @@
       </div>
       <div class="panel-body" style="color: white;background-color: #8e476c;border-color: #bce8f1;"> 
         <div  style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
-        <%= form_with(model: donacion, local: true) do |form| %>
-          <% if donacion.errors.any? %>
+        <%= form_with(model: Donacion, local: true) do |form| %>
+          <% if Donacion.errors.any? %>
             <div id="error_explanation">
-              <h2><%= pluralize(donacion.errors.count, "error") %> prohibited this donacion from being saved:</h2>
+              <h2><%= pluralize(Donacion.errors.count, "error") %> prohibited this Donacion from being saved:</h2>
               <ul>
-                <% donacion.errors.full_messages.each do |message| %>
+                <% Donacion.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
           <% end %>
               </ul>
@@ -22,7 +22,7 @@
           <div class="input-group-prepend">
               <span class="input-group-text"> <i class="far fa-money-bill-alt"></i> </span>
            </div>
-              <%= form.number_field :monto,min:5000,:required => true, id: :donacion_monto,style:"color:black;" %>
+              <%= form.number_field :monto,min:5000,:required => true, id: :Donacion_monto,style:"color:black;" %>
               <%= form.hidden_field :user_id, value: current_user.id %>
           </div>
           
@@ -31,7 +31,7 @@
                 <%= form.submit %>
               </div>
               <div class="btn" style="padding-left: 0;">
-                <%= link_to "Volver", donacions_path, :method => "get", style: '-webkit-appearance: button;
+                <%= link_to "Volver", Donacions_path, :method => "get", style: '-webkit-appearance: button;
     cursor: pointer;width: 157%;' %>
 
               </div>

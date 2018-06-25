@@ -95,7 +95,7 @@
         var data = google.visualization.arrayToDataTable(<%= raw @aux2 %>);
 
         var options = {
-          title: 'Donaciones totales a la fecha <%= number_to_currency(@total_donaciones) %>',
+          title: 'Donaciones totales <%= number_to_currency(@total_Donaciones) %>',
           width: 500,
           height: 300,
           backgroundColor: '#b2537c',

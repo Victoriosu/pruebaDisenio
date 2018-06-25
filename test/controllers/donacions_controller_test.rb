@@ -2,47 +2,47 @@ require 'test_helper'
 
 class DonacionsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @donacion = donacions(:one)
+    @Donacion = Donacions(:one)
   end
 
   test "should get index" do
-    get donacions_url
+    get Donacions_url
     assert_response :success
   end
 
   test "should get new" do
-    get new_donacion_url
+    get new_Donacion_url
     assert_response :success
   end
 
-  test "should create donacion" do
+  test "should create Donacion" do
     assert_difference('Donacion.count') do
-      post donacions_url, params: { donacion: { monto: @donacion.monto, user_id: @donacion.user_id } }
+      post Donacions_url, params: { Donacion: { monto: @Donacion.monto, user_id: @Donacion.user_id } }
     end
 
-    assert_redirected_to donacion_url(Donacion.last)
+    assert_redirected_to Donacion_url(Donacion.last)
   end
 
-  test "should show donacion" do
-    get donacion_url(@donacion)
+  test "should show Donacion" do
+    get Donacion_url(@Donacion)
     assert_response :success
   end
 
   test "should get edit" do
-    get edit_donacion_url(@donacion)
+    get edit_Donacion_url(@Donacion)
     assert_response :success
   end
 
-  test "should update donacion" do
-    patch donacion_url(@donacion), params: { donacion: { monto: @donacion.monto, user_id: @donacion.user_id } }
-    assert_redirected_to donacion_url(@donacion)
+  test "should update Donacion" do
+    patch Donacion_url(@Donacion), params: { Donacion: { monto: @Donacion.monto, user_id: @Donacion.user_id } }
+    assert_redirected_to Donacion_url(@Donacion)
   end
 
-  test "should destroy donacion" do
+  test "should destroy Donacion" do
     assert_difference('Donacion.count', -1) do
-      delete donacion_url(@donacion)
+      delete Donacion_url(@Donacion)
     end
 
-    assert_redirected_to donacions_url
+    assert_redirected_to Donacions_url
   end
 end

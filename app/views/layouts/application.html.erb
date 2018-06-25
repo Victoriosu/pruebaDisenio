@@ -47,7 +47,7 @@
     </button>
       <div class="collapse navbar-collapse new_collapse "  id="navbarSupportedContent" style="height: 120px;">
         <ul class="navbar-nav mr-auto">
-          <% if user_signed_in? && current_user.perfil_id == 1 %>
+          <% if user_signed_in? && current_user.perfil.nombre == "Administrador" %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffc000;">
                 Usuarios
@@ -57,7 +57,7 @@
               </div>
             </li>
           <%end%>
-          <% if user_signed_in? && current_user.perfil_id == 1 %>
+          <% if user_signed_in? && current_user.perfil.nombre == "Administrador" %>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffc000;">
               Perfiles
@@ -74,30 +74,30 @@
               Actividades
             </a>
             <div class="dropdown-menu new_ddl" aria-labelledby="navbarDropdown">
-              <% if  user_signed_in? && current_user.perfil_id == 3 || current_user.perfil_id == 1  %>
+              <% if  user_signed_in? && current_user.perfil.nombre == "Voluntario" || current_user.perfil.nombre == "Administrador"  %>
                 <%= link_to 'Ver Todas', actividads_path , class: 'dropdown-item',style:"color: #ffc107;"%>
                 <div class="dropdown-divider" style="background-color: #ffc107; border:0.5px solid #ffc000 "></div>
               <% end %>
-              <% if user_signed_in? && current_user.perfil_id ==3 %>
+              <% if user_signed_in? && current_user.perfil.nombre == "Voluntario" %>
                 <%= link_to 'Ver mis actividades', '/actividades/pendientes' , class: 'dropdown-item',style:"color: #ffc107;"%>
                 <div class="dropdown-divider" style="background-color: #ffc107; border:0.5px solid #ffc000 "></div>
               <%end%>
               <%= link_to 'Ver Aprobadas', '/actividades/aprobadas' , class: 'dropdown-item',style:"color: #ffc107;" %>
             </div>
           </li>
-          <% if user_signed_in? && current_user.perfil_id == 2 %>
+          <% if user_signed_in? && current_user.perfil.nombre == "Donante" %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffc000;">
                 Donaciones
               </a>
               <div class="dropdown-menu new_ddl" aria-labelledby="navbarDropdown">
-                <%= link_to 'Mis donaciones', donacions_path , class: 'dropdown-item',style:"color: #ffc107;"%>
+                <%= link_to 'Mis Donaciones', Donacions_path , class: 'dropdown-item',style:"color: #ffc107;"%>
                 <div class="dropdown-divider" style="background-color: #ffc107; border:0.5px solid #ffc000 "></div>
-                <%= link_to 'Hacer donacion', new_donacion_path  , class: 'dropdown-item',style:"color: #ffc107;"%>
+                <%= link_to 'Hacer Donacion', new_Donacion_path  , class: 'dropdown-item',style:"color: #ffc107;"%>
               </div>
             </li>
           <% end %>
-          <% if user_signed_in? && current_user.perfil_id == 1 %>
+          <% if user_signed_in? && current_user.perfil.nombre == "Administrador" %>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: #ffc000;">
                 Gráficas

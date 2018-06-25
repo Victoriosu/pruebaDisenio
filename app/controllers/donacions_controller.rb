@@ -1,74 +1,74 @@
 class DonacionsController < ApplicationController
-  before_action :set_donacion, only: [:show, :edit, :update, :destroy]
+  before_action :set_Donacion, only: [:show, :edit, :update, :destroy]
 
-  # GET /donacions
-  # GET /donacions.json
+  # GET /Donacions
+  # GET /Donacions.json
   def index
-    @donacions = Donacion.all
+    @Donacions = Donacion.all
   end
 
-  # GET /donacions/1
-  # GET /donacions/1.json
+  # GET /Donacions/1
+  # GET /Donacions/1.json
   def show
   end
 
-  # GET /donacions/new
+  # GET /Donacions/new
   def new
-    @donacion = Donacion.new
+    @Donacion = Donacion.new
   end
 
-  # GET /donacions/1/edit
+  # GET /Donacions/1/edit
   def edit
   end
 
-  # POST /donacions
-  # POST /donacions.json
+  # POST /Donacions
+  # POST /Donacions.json
   def create
-    @donacion = Donacion.new(donacion_params)
+    @Donacion = Donacion.new(Donacion_params)
 
     respond_to do |format|
-      if @donacion.save
-        format.html { redirect_to @donacion, notice: 'Donación creada exitosamente.' }
-        format.json { render :show, status: :created, location: @donacion }
+      if @Donacion.save
+        format.html { redirect_to @Donacion, notice: 'Donación creada exitosamente.' }
+        format.json { render :show, status: :created, location: @Donacion }
       else
         format.html { render :new }
-        format.json { render json: @donacion.errors, status: :unprocessable_entity }
+        format.json { render json: @Donacion.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # PATCH/PUT /donacions/1
-  # PATCH/PUT /donacions/1.json
+  # PATCH/PUT /Donacions/1
+  # PATCH/PUT /Donacions/1.json
   def update
     respond_to do |format|
-      if @donacion.update(donacion_params)
-        format.html { redirect_to @donacion, notice: 'Donación editada exitosamente.' }
-        format.json { render :show, status: :ok, location: @donacion }
+      if @Donacion.update(Donacion_params)
+        format.html { redirect_to @Donacion, notice: 'Donación editada exitosamente.' }
+        format.json { render :show, status: :ok, location: @Donacion }
       else
         format.html { render :edit }
-        format.json { render json: @donacion.errors, status: :unprocessable_entity }
+        format.json { render json: @Donacion.errors, status: :unprocessable_entity }
       end
     end
   end
 
-  # DELETE /donacions/1
-  # DELETE /donacions/1.json
+  # DELETE /Donacions/1
+  # DELETE /Donacions/1.json
   def destroy
-    @donacion.destroy
+    @Donacion.destroy
     respond_to do |format|
-      format.html { redirect_to donacions_url, notice: 'Donacion eliminada exitosamente.' }
+      format.html { redirect_to Donacions_url, notice: 'Donacion eliminada exitosamente.' }
       format.json { head :no_content }
     end
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_donacion
-      @donacion = Donacion.find(params[:id])
+    def set_Donacion
+      @Donacion = Donacion.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def donacion_params
-      params.require(:donacion).permit(:user_id, :monto)
+    def Donacion_params
+      params.require(:Donacion).permit(:user_id, :monto)
     end
 end

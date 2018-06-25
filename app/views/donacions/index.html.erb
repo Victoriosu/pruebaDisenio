@@ -13,13 +13,13 @@
   </thead>
 
   <tbody style="border: 0 solid #ffc000">
-    <% @donacions.each do |donacion| %>
+    <% @Donacions.each do |Donacion| %>
       <tr>
-        <td><%= donacion.user.nombre_completo %></td>
-        <td><%= donacion.monto %></td>
-        <td><%= link_to raw("<i class='material-icons'>remove_red_eye</i>"), donacion,style:"color: #ffc000;" %></td>
-        <!--<td><%= link_to raw("<i class='material-icons'>edit</i>"), edit_donacion_path(donacion),style:"color: #ffc000;" %></td>
-        <td><%= link_to raw("<i class='material-icons'>delete</i>"), donacion, method: :delete,style:"color: #ffc000;", data: { confirm: 'Seguro que desea eliminar?' } %></td> -->
+        <td><%= Donacion.user.nombre_completo %></td>
+        <td><%= Donacion.monto %></td>
+        <td><%= link_to raw("<i class='material-icons'>remove_red_eye</i>"), Donacion,style:"color: #ffc000;" %></td>
+        <!--<td><%= link_to raw("<i class='material-icons'>edit</i>"), edit_Donacion_path(Donacion),style:"color: #ffc000;" %></td>
+        <td><%= link_to raw("<i class='material-icons'>delete</i>"), Donacion, method: :delete,style:"color: #ffc000;", data: { confirm: 'Seguro que desea eliminar?' } %></td> -->
       </tr>
     <% end %>
   </tbody>
@@ -27,5 +27,5 @@
 </div>
 <br>
 
-<%= link_to 'Hacer una donacion', new_donacion_path,class: "btn new_btn2",style:"width: 95%; margin-left:2%; font-size: 1.5erm;" %>
+<%= link_to 'Hacer una Donacion', new_Donacion_path,class: "btn new_btn2",style:"width: 95%; margin-left:2%; font-size: 1.5erm;" %>
 </div>

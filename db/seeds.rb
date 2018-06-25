@@ -10,8 +10,9 @@
 #Perfil.create(nombre: 'Donante')
 #Perfil.create(nombre: 'Voluntario')
 
-Perfil.destroy_all
+
 User.destroy_all
+Perfil.destroy_all
 Donacion.destroy_all
 Actividad.destroy_all
 

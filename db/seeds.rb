@@ -10,9 +10,14 @@
 #Perfil.create(nombre: 'Donante')
 #Perfil.create(nombre: 'Voluntario')
 
+Perfil.destroy_all
 User.destroy_all
 Donacion.destroy_all
 Actividad.destroy_all
+
+Perfil.create(nombre: 'Administrador')
+Perfil.create(nombre: 'Donante')
+Perfil.create(nombre: 'Voluntario')
 
 User.create(email: "admin@admin.cl", password: "password", password_confirmation: "password", perfil_id: Perfil.first.id, nombre_completo: 'Júan Perez',created_at: Time.now-3.month)
 User.create(email: "donante@donante.cl", password: "password", password_confirmation: "password", perfil_id: Perfil.second.id, nombre_completo: 'Leonardo Farcas',created_at: Time.now-2.month)

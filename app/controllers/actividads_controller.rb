@@ -83,7 +83,7 @@ class ActividadsController < ApplicationController
   def destroy
     @actividad.destroy
     respond_to do |format|
-      format.html { redirect_to actividads_url, notice: 'Actividad was successfully destroyed.' }
+      format.html { redirect_to actividads_path, notice: 'Actividad was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

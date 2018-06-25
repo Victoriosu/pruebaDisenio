@@ -2,7 +2,7 @@ class Actividad < ApplicationRecord
 	validate :fecha?
 
 	#asociaciones
-	belongs_to :user, dependent: :destroy
+	belongs_to :user
 
 	after_create :set_pendiente
 
